@@ -2147,3 +2147,681 @@ Processing by GoalsController#show as HTML
   [1m[36mGoal Load (0.2ms)[0m  [1mSELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1[0m  [["id", 1]]
   Rendered goals/show.html.erb within layouts/application (0.8ms)
 Completed 200 OK in 23ms (Views: 15.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 20:46:16 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GoalsController#index as HTML
+  [1m[35mGoal Load (0.3ms)[0m  SELECT "goals".* FROM "goals"
+  Rendered goals/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 105ms (Views: 96.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/goals/new" for 127.0.0.1 at 2015-07-08 20:46:24 +0300
+Processing by GoalsController#new as HTML
+  Rendered goals/_form.html.erb (10.6ms)
+  Rendered goals/new.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 25ms (Views: 24.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/goals" for 127.0.0.1 at 2015-07-08 20:46:30 +0300
+Processing by GoalsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KSQBStimjHeyRukGUpLHAEjf+mJGK3STQ1w/kL1nTEtvajMAJLewyNGAnMxD54afcE22IFEPUaRQzEfAgcdvMw==", "goal"=>{"name"=>"111", "description"=>"231", "term"=>"2015-07-11"}, "commit"=>"Create Goal"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "goals" ("name", "description", "term", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "111"], ["description", "231"], ["term", "2015-07-11 00:00:00.000000"], ["created_at", "2015-07-08 17:46:30.284179"], ["updated_at", "2015-07-08 17:46:30.284179"]]
+  [1m[36m (56.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/goals/8
+Completed 302 Found in 61ms (ActiveRecord: 57.2ms)
+
+
+Started GET "/goals/8" for 127.0.0.1 at 2015-07-08 20:46:30 +0300
+Processing by GoalsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mGoal Load (0.2ms)[0m  SELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1  [["id", 8]]
+  Rendered goals/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 17ms (Views: 12.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/goals" for 127.0.0.1 at 2015-07-08 20:46:31 +0300
+Processing by GoalsController#index as HTML
+  [1m[36mGoal Load (0.3ms)[0m  [1mSELECT "goals".* FROM "goals"[0m
+  Rendered goals/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 20:50:44 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GoalsController#index as HTML
+  [1m[35mGoal Load (0.4ms)[0m  SELECT "goals".* FROM "goals"
+  Rendered goals/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 107ms (Views: 97.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 20:56:16 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GoalsController#index as HTML
+  [1m[35mGoal Load (0.3ms)[0m  SELECT "goals".* FROM "goals"
+  Rendered goals/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 106ms (Views: 98.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/goals/1" for 127.0.0.1 at 2015-07-08 20:56:19 +0300
+Processing by GoalsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered goals/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 18ms (Views: 12.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/goals/1/edit" for 127.0.0.1 at 2015-07-08 20:56:21 +0300
+Processing by GoalsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mGoal Load (0.4ms)[0m  SELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered goals/edit.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.4ms)
+
+SyntaxError (/home/bogito/ror/myapp/app/views/goals/edit.html.erb:3: syntax error, unexpected '<'
+...reeze;@output_buffer.append=( <%= link_to "Back to Goals", g...
+...                               ^
+/home/bogito/ror/myapp/app/views/goals/edit.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+...tput_buffer = _old_virtual_path, _old_output_buffer
+...                               ^
+/home/bogito/ror/myapp/app/views/goals/edit.html.erb:5: syntax error, unexpected '\n', expecting '='):
+  app/views/goals/edit.html.erb:3: syntax error, unexpected '<'
+  app/views/goals/edit.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+  app/views/goals/edit.html.erb:5: syntax error, unexpected '\n', expecting '='
+
+
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.0ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (9.4ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (22.6ms)
+
+
+Started GET "/goals/1/edit" for 127.0.0.1 at 2015-07-08 20:56:21 +0300
+Processing by GoalsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered goals/edit.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms)
+
+SyntaxError (/home/bogito/ror/myapp/app/views/goals/edit.html.erb:3: syntax error, unexpected '<'
+...reeze;@output_buffer.append=( <%= link_to "Back to Goals", g...
+...                               ^
+/home/bogito/ror/myapp/app/views/goals/edit.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+...tput_buffer = _old_virtual_path, _old_output_buffer
+...                               ^
+/home/bogito/ror/myapp/app/views/goals/edit.html.erb:5: syntax error, unexpected '\n', expecting '='):
+  app/views/goals/edit.html.erb:3: syntax error, unexpected '<'
+  app/views/goals/edit.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+  app/views/goals/edit.html.erb:5: syntax error, unexpected '\n', expecting '='
+
+
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.9ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (20.9ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (11.7ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (23.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 20:56:26 +0300
+Processing by GoalsController#index as HTML
+  [1m[35mGoal Load (0.2ms)[0m  SELECT "goals".* FROM "goals"
+  Rendered goals/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 21ms (Views: 20.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 20:56:50 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GoalsController#index as HTML
+  [1m[35mGoal Load (0.3ms)[0m  SELECT "goals".* FROM "goals"
+  Rendered goals/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 105ms (Views: 95.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/goals/1" for 127.0.0.1 at 2015-07-08 20:56:51 +0300
+Processing by GoalsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered goals/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 19ms (Views: 12.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/goals/1/edit" for 127.0.0.1 at 2015-07-08 20:56:52 +0300
+Processing by GoalsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mGoal Load (0.2ms)[0m  SELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered goals/_form.html.erb (10.6ms)
+  Rendered goals/edit.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 26ms (Views: 24.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 20:57:29 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GoalsController#index as HTML
+  [1m[35mGoal Load (0.3ms)[0m  SELECT "goals".* FROM "goals"
+  Rendered goals/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 103ms (Views: 94.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/goals/5" for 127.0.0.1 at 2015-07-08 20:57:33 +0300
+Processing by GoalsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered goals/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 19ms (Views: 12.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/goals/5/edit" for 127.0.0.1 at 2015-07-08 20:57:34 +0300
+Processing by GoalsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mGoal Load (0.2ms)[0m  SELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered goals/_form.html.erb (23.0ms)
+  Rendered goals/edit.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 41ms (Views: 40.2ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/goals/5" for 127.0.0.1 at 2015-07-08 20:57:49 +0300
+
+AbstractController::ActionNotFound (The action 'update' could not be found for GoalsController):
+  actionpack (4.2.1) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `call'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.3) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.3) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.3) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.3) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.3) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.3ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (9.3ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.2ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (20.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 20:59:59 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GoalsController#index as HTML
+  [1m[35mGoal Load (0.3ms)[0m  SELECT "goals".* FROM "goals"
+  Rendered goals/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 102ms (Views: 93.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/goals/1" for 127.0.0.1 at 2015-07-08 21:00:03 +0300
+Processing by GoalsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered goals/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 18ms (Views: 12.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/goals/1/edit" for 127.0.0.1 at 2015-07-08 21:00:07 +0300
+Processing by GoalsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mGoal Load (0.3ms)[0m  SELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered goals/_form.html.erb (13.6ms)
+  Rendered goals/edit.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 31ms (Views: 29.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 21:08:26 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GoalsController#index as HTML
+  [1m[35mGoal Load (0.3ms)[0m  SELECT "goals".* FROM "goals"
+  Rendered goals/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 110ms (Views: 100.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/goals/1" for 127.0.0.1 at 2015-07-08 21:08:29 +0300
+Processing by GoalsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered goals/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 18ms (Views: 12.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/goals/1/edit" for 127.0.0.1 at 2015-07-08 21:08:31 +0300
+Processing by GoalsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mGoal Load (0.4ms)[0m  SELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered goals/_form.html.erb (10.8ms)
+  Rendered goals/edit.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 28ms (Views: 26.1ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/goals/1" for 127.0.0.1 at 2015-07-08 21:08:41 +0300
+Processing by GoalsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VFkK1Ak/cuCXLUP5pjPicvOXenfhDHZ2F2v2+8oI+FISFzie9S5OX/TrNjO3RqPtywU2NfYoU0EE+46r9qjbKg==", "goal"=>{"name"=>"1241", "description"=>"Some particular stuff", "term"=>"2015-07-10"}, "commit"=>"Update Goal", "id"=>"1"}
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "goals" SET "description" = $1, "updated_at" = $2 WHERE "goals"."id" = $3[0m  [["description", "Some particular stuff"], ["updated_at", "2015-07-08 18:08:41.726553"], ["id", 1]]
+  [1m[35m (83.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/goals/1
+Completed 302 Found in 89ms (ActiveRecord: 84.3ms)
+
+
+Started GET "/goals/1" for 127.0.0.1 at 2015-07-08 21:08:41 +0300
+Processing by GoalsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGoal Load (0.4ms)[0m  [1mSELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered goals/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 19ms (Views: 16.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 21:09:10 +0300
+Processing by GoalsController#index as HTML
+  [1m[35mGoal Load (0.2ms)[0m  SELECT "goals".* FROM "goals"
+  Rendered goals/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 18ms (Views: 17.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 21:12:56 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GoalsController#index as HTML
+  [1m[35mGoal Load (0.4ms)[0m  SELECT "goals".* FROM "goals"
+  Rendered goals/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 105ms (Views: 96.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/goals/2" for 127.0.0.1 at 2015-07-08 21:12:57 +0300
+Processing by GoalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered goals/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 22ms (Views: 14.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/goals/2/edit" for 127.0.0.1 at 2015-07-08 21:12:59 +0300
+Processing by GoalsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mGoal Load (0.2ms)[0m  SELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered goals/_form.html.erb (18.0ms)
+  Rendered goals/edit.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 37ms (Views: 35.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/goals" for 127.0.0.1 at 2015-07-08 21:13:06 +0300
+Processing by GoalsController#index as HTML
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT "goals".* FROM "goals"[0m
+  Rendered goals/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 18ms (Views: 17.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/goals/5" for 127.0.0.1 at 2015-07-08 21:13:07 +0300
+Processing by GoalsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mGoal Load (0.2ms)[0m  SELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered goals/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/goals/5/edit" for 127.0.0.1 at 2015-07-08 21:13:08 +0300
+Processing by GoalsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mGoal Load (0.3ms)[0m  [1mSELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered goals/_form.html.erb (2.5ms)
+  Rendered goals/edit.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/goals/5" for 127.0.0.1 at 2015-07-08 21:13:13 +0300
+Processing by GoalsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Wdu2MH/3rCpjtKPtAxozS/7erE5dcV8AAjl2ot3iBcIflYR6g+aQlQBy1icSb3LUxkzgDEpVejcRqQ7y4UImug==", "goal"=>{"name"=>"123", "description"=>"3123", "term"=>"2015-07-25"}, "commit"=>"Update Goal", "id"=>"5"}
+  [1m[35mGoal Load (0.2ms)[0m  SELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "goals" SET "description" = $1, "updated_at" = $2 WHERE "goals"."id" = $3  [["description", "3123"], ["updated_at", "2015-07-08 18:13:13.518075"], ["id", 5]]
+  [1m[36m (44.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/goals/5
+Completed 302 Found in 49ms (ActiveRecord: 44.5ms)
+
+
+Started GET "/goals/5" for 127.0.0.1 at 2015-07-08 21:13:13 +0300
+Processing by GoalsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mGoal Load (0.2ms)[0m  SELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered goals/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 17ms (Views: 16.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/goals" for 127.0.0.1 at 2015-07-08 21:13:16 +0300
+Processing by GoalsController#index as HTML
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT "goals".* FROM "goals"[0m
+  Rendered goals/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/goals/3" for 127.0.0.1 at 2015-07-08 21:13:18 +0300
+Processing by GoalsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mGoal Load (0.1ms)[0m  SELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered goals/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/goals/3/edit" for 127.0.0.1 at 2015-07-08 21:13:20 +0300
+Processing by GoalsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered goals/_form.html.erb (2.0ms)
+  Rendered goals/edit.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 29ms (Views: 27.9ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/goals/3" for 127.0.0.1 at 2015-07-08 21:13:25 +0300
+Processing by GoalsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eMhUPI7Gz9UDcU9tNV5KrZV0QqOuqZxY6ZmJCJBY4tM+hmZ2ctfzamC3OqckKwsyreYO4bmNuW/6CfFYrPjBqw==", "goal"=>{"name"=>"Nope Nope", "description"=>"To find alternative way to solve my problem", "term"=>"2015-07-24"}, "commit"=>"Update Goal", "id"=>"3"}
+  [1m[35mGoal Load (0.2ms)[0m  SELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "goals" SET "name" = $1, "updated_at" = $2 WHERE "goals"."id" = $3  [["name", "Nope Nope"], ["updated_at", "2015-07-08 18:13:25.989274"], ["id", 3]]
+  [1m[36m (42.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/goals/3
+Completed 302 Found in 45ms (ActiveRecord: 42.4ms)
+
+
+Started GET "/goals/3" for 127.0.0.1 at 2015-07-08 21:13:26 +0300
+Processing by GoalsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mGoal Load (0.2ms)[0m  SELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered goals/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 27ms (Views: 25.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/goals" for 127.0.0.1 at 2015-07-08 21:13:26 +0300
+Processing by GoalsController#index as HTML
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT "goals".* FROM "goals"[0m
+  Rendered goals/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 24ms (Views: 22.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/goals/2" for 127.0.0.1 at 2015-07-08 21:14:30 +0300
+Processing by GoalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mGoal Load (0.2ms)[0m  SELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered goals/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/goals/2/edit" for 127.0.0.1 at 2015-07-08 21:14:31 +0300
+Processing by GoalsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGoal Load (0.3ms)[0m  [1mSELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered goals/_form.html.erb (2.0ms)
+  Rendered goals/edit.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 28ms (Views: 26.2ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/goals/2" for 127.0.0.1 at 2015-07-08 21:14:35 +0300
+Processing by GoalsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SrSXvCMvA17AJFQqmgwbF4wcEzTZ6cDYAEHvhnD2lMwM+qX23z4/4aPiIeCLeVqItI5fds7N5e8T0ZfWTFa3tA==", "goal"=>{"name"=>"Hello Man!!!!", "description"=>"I'm trying to do something", "term"=>"2015-07-31"}, "commit"=>"Update Goal", "id"=>"2"}
+  [1m[35mGoal Load (0.3ms)[0m  SELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "goals" SET "name" = $1, "updated_at" = $2 WHERE "goals"."id" = $3  [["name", "Hello Man!!!!"], ["updated_at", "2015-07-08 18:14:35.410365"], ["id", 2]]
+  [1m[36m (66.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/goals/2
+Completed 302 Found in 70ms (ActiveRecord: 66.9ms)
+
+
+Started GET "/goals/2" for 127.0.0.1 at 2015-07-08 21:14:35 +0300
+Processing by GoalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mGoal Load (0.7ms)[0m  SELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered goals/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 24ms (Views: 21.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/goals" for 127.0.0.1 at 2015-07-08 21:14:37 +0300
+Processing by GoalsController#index as HTML
+  [1m[36mGoal Load (0.6ms)[0m  [1mSELECT "goals".* FROM "goals"[0m
+  Rendered goals/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 26ms (Views: 24.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 21:36:58 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GoalsController#index as HTML
+  Rendered goals/index.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/home/bogito/ror/myapp/app/views/goals/index.html.erb:12: syntax error, unexpected keyword_ensure, expecting keyword_end
+/home/bogito/ror/myapp/app/views/goals/index.html.erb:14: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/goals/index.html.erb:12: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/goals/index.html.erb:14: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (14.3ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.1ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (9.0ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (20.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 21:37:40 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GoalsController#index as HTML
+  Rendered goals/index.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/home/bogito/ror/myapp/app/views/goals/index.html.erb:12: syntax error, unexpected keyword_ensure, expecting keyword_end
+/home/bogito/ror/myapp/app/views/goals/index.html.erb:14: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/goals/index.html.erb:12: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/goals/index.html.erb:14: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (14.6ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (9.4ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (20.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 21:38:44 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GoalsController#index as HTML
+  Rendered goals/index.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/home/bogito/ror/myapp/app/views/goals/index.html.erb:12: syntax error, unexpected keyword_ensure, expecting keyword_end
+/home/bogito/ror/myapp/app/views/goals/index.html.erb:14: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/goals/index.html.erb:12: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/goals/index.html.erb:14: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.7ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (14.4ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (9.3ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/bogito/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (20.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 21:39:05 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GoalsController#index as HTML
+  [1m[35mGoal Load (0.3ms)[0m  SELECT "goals".* FROM "goals"
+  Rendered goals/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 111ms (Views: 101.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/goals/4" for 127.0.0.1 at 2015-07-08 21:39:09 +0300
+Processing by GoalsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered goals/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 20ms (Views: 14.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/goals/4/edit" for 127.0.0.1 at 2015-07-08 21:39:11 +0300
+Processing by GoalsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mGoal Load (0.2ms)[0m  SELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered goals/_form.html.erb (10.9ms)
+  Rendered goals/edit.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 25ms (Views: 24.2ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/goals/4" for 127.0.0.1 at 2015-07-08 21:39:16 +0300
+Processing by GoalsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ko3aDI2pbcevrja5mwqm/QTr6JwhWcuIO4qh9NG/gTnUw+hGcbhReMxoQ3OKf+diPHmk3jZ97r8oGtmk7R+iQQ==", "goal"=>{"name"=>"Edited Goal", "description"=>"wqedw", "term"=>"2015-10-09"}, "commit"=>"Update Goal", "id"=>"4"}
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "goals" SET "name" = $1, "updated_at" = $2 WHERE "goals"."id" = $3[0m  [["name", "Edited Goal"], ["updated_at", "2015-07-08 18:39:16.846574"], ["id", 4]]
+  [1m[35m (54.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/goals/4
+Completed 302 Found in 58ms (ActiveRecord: 54.5ms)
+
+
+Started GET "/goals/4" for 127.0.0.1 at 2015-07-08 21:39:16 +0300
+Processing by GoalsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered goals/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/goals" for 127.0.0.1 at 2015-07-08 21:39:19 +0300
+Processing by GoalsController#index as HTML
+  [1m[35mGoal Load (0.3ms)[0m  SELECT "goals".* FROM "goals"
+  Rendered goals/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 21:40:50 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GoalsController#index as HTML
+  [1m[35mGoal Load (0.4ms)[0m  SELECT "goals".* FROM "goals"
+  Rendered goals/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 110ms (Views: 101.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/goals/6" for 127.0.0.1 at 2015-07-08 21:40:52 +0300
+Processing by GoalsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  Rendered goals/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 21ms (Views: 15.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/goals/6/edit" for 127.0.0.1 at 2015-07-08 21:40:53 +0300
+Processing by GoalsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mGoal Load (0.4ms)[0m  SELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1  [["id", 6]]
+  Rendered goals/_form.html.erb (19.8ms)
+  Rendered goals/edit.html.erb within layouts/application (23.3ms)
+Completed 200 OK in 40ms (Views: 38.3ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/goals/6" for 127.0.0.1 at 2015-07-08 21:40:57 +0300
+Processing by GoalsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XO3wx3Nnq4ddTdmJN/CjodBXwDAYBcp8Xof6SSr7wsgao8KNj3aXOD6LrEMmheI+6MWMcg8h70tNF4IZFlvhsA==", "goal"=>{"name"=>"wrffffff", "description"=>"3rf", "term"=>"2015-07-17"}, "commit"=>"Update Goal", "id"=>"6"}
+  [1m[36mGoal Load (0.8ms)[0m  [1mSELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "goals" SET "name" = $1, "updated_at" = $2 WHERE "goals"."id" = $3[0m  [["name", "wrffffff"], ["updated_at", "2015-07-08 18:40:57.122151"], ["id", 6]]
+  [1m[35m (48.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/goals/6
+Completed 302 Found in 53ms (ActiveRecord: 49.1ms)
+
+
+Started GET "/goals/6" for 127.0.0.1 at 2015-07-08 21:40:57 +0300
+Processing by GoalsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mGoal Load (0.7ms)[0m  [1mSELECT  "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  Rendered goals/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 19ms (Views: 16.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/goals" for 127.0.0.1 at 2015-07-08 21:40:59 +0300
+Processing by GoalsController#index as HTML
+  [1m[35mGoal Load (0.2ms)[0m  SELECT "goals".* FROM "goals"
+  Rendered goals/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.2ms)

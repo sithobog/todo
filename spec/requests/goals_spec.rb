@@ -32,9 +32,22 @@ RSpec.describe "Goals", type: :request do
 
     it "go to edit_path" do
       visit goals_path
-      click_on 'Show'
+      within("#goal_#{goal.id}") do
+        click_on 'Show'
+      end
       click_on 'Edit Goal'
       assert_equal current_path, edit_goal_path(goal)
     end
+
+    it "update goal" do
+      visit edit_goal_path(goal)
+      fill_in 'Name', with: 'Hola Wola'
+      fill_in 'Description', with: 'Edited goal'
+      fill_in 'Term', with: '20-11-2020'
+      click_on 'Update Goal'
+      assert_equal current_path, goal_path(goal)
+      expect(page).to have_content 'Edited goal'
+    end
+
   end
 end
