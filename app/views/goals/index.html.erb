@@ -1,2 +1,7 @@
-<h1>Goals#index</h1>
-<p>Find me in app/views/goals/index.html.erb</p>
+<h1>Goals</h1>
+<%= link_to "New goal", new_goal_path %>
+<ul>
+<% for goal in @goals %>
+<li><%= goal.name %> | <%= link_to 'Show', goal %></li>
+<% end %>
+</ul>

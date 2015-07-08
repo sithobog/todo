@@ -1,0 +1,5 @@
+<h1> <%= @goal.name %> </h1>
+<h2> <%= @goal.description %></h2>
+<h3>Author is going to finish this goal at <%= @goal.term %></h3>
+<%= link_to 'Edit Goal', edit_goal_path %>
+<%= link_to 'Back to Goals', goals_path %>
