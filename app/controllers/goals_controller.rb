@@ -1,6 +1,6 @@
 class GoalsController < ApplicationController
   def index
-  	@goals = Goal.all
+  	@goals = Goal.all.id_order
   end
 
   def show
@@ -9,6 +9,10 @@ class GoalsController < ApplicationController
 
   def new
   	@goal = Goal.new
+  end
+
+  def edit
+    @goal = Goal.find(params[:id])
   end
 
   def create
@@ -21,10 +25,7 @@ class GoalsController < ApplicationController
   	end
   end
 
-  def edit
-  	@goal = Goal.find(params[:id])
-  	
-  end
+
 
   def update
     @goal = Goal.find(params[:id])
@@ -33,8 +34,14 @@ class GoalsController < ApplicationController
     else
       render 'edit'
     end
-   end
+  end
 
+
+  def destroy
+    @goal = Goal.find(params[:id])
+    @goal.destroy
+    redirect_to goals_path
+  end
 
 
   private

@@ -3,3 +3,5 @@
 <h3>Author is going to finish this goal at <%= @goal.term %></h3>
 <%= link_to 'Edit Goal', edit_goal_path %>
 <%= link_to 'Back to Goals', goals_path %>
+<%= link_to 'Delete', goal_path(@goal), method: :delete,
+									 data: {confirm: 'Are you sure?'} %>
