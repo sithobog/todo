@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'database_cleaner'
 
 RSpec.describe "Goals", type: :request do
   goal = FactoryGirl.create(:goal)
@@ -49,5 +50,16 @@ RSpec.describe "Goals", type: :request do
       expect(page).to have_content 'Edited goal'
     end
 
+    it "delete goal", :js=>true do
+      visit goal_path(goal)
+      sleep 0.3
+      click_on 'Delete'
+      sleep 0.3
+      page.driver.browser.switch_to.alert.accept
+      sleep 0.3
+      visit goals_path
+    end
+
   end
+  DatabaseCleaner.clean
 end
