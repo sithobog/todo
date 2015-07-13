@@ -1,21 +1,19 @@
 require 'rails_helper'
-require 'database_cleaner'
 
 RSpec.describe "Goals", type: :request do
+
   goal = FactoryGirl.create(:goal)
   
-  describe "GET /goals" do
+  context "GET /goals" do
 
   	
     it "display some goals" do
-
   		visit goals_path
-  		expect(page).to have_content 'Rubyist'
-  	
+  		expect(page).to have_content 'Rubyist'  	
     end
   end
 
-  describe "create new task" do
+  context "create new task" do
   	it "create a new task" do
   		visit goals_path
   		click_link 'New goal'
@@ -29,7 +27,7 @@ RSpec.describe "Goals", type: :request do
     end
   end
 
-  describe "edit created task" do
+  context "edit created task", :js=>true do
 
     it "go to edit_path" do
       visit goals_path
@@ -42,24 +40,25 @@ RSpec.describe "Goals", type: :request do
 
     it "update goal" do
       visit edit_goal_path(goal)
-      fill_in 'Name', with: 'Hola Wola'
+      fill_in 'Name', with: 'Edited_name'
       fill_in 'Description', with: 'Edited goal'
       fill_in 'Term', with: '20-11-2020'
       click_on 'Update Goal'
       assert_equal current_path, goal_path(goal)
-      expect(page).to have_content 'Edited goal'
-    end
-
-    it "delete goal", :js=>true do
-      visit goal_path(goal)
-      sleep 0.3
-      click_on 'Delete'
-      sleep 0.3
-      page.driver.browser.switch_to.alert.accept
-      sleep 0.3
       visit goals_path
+      expect(page).to have_content 'Edited_name'
     end
-
   end
-  DatabaseCleaner.clean
+
+  context "delete task" do
+
+      it "delete goal", :js=>true do
+        visit goals_path
+        visit goal_path(goal)
+        click_on 'Delete'
+        page.driver.browser.switch_to.alert.accept   
+        visit goals_path
+        expect(page).to have_no_content 'Edited_name'
+      end
+    end
 end
