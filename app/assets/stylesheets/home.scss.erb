@@ -1,0 +1,114 @@
+body {
+  background: url(<%= asset_path 'bg/escheresque_ste.png' %>);
+  color: #2E3A38;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 62.5%;
+}
+
+li,p{
+    font-size: 2em;
+}
+
+main{
+    background-color: #eee;
+}
+
+
+.container{
+    max-width: 960px;
+}
+
+main.container{
+    padding: 0;
+}
+
+header.navbar{
+    margin-bottom: 0;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    opacity: .8;
+}
+
+
+
+.banner{
+    height: 320px;
+    background: url(<%= asset_path 'top.jpg' %>) no-repeat;
+
+    position: relative;
+}
+
+.banner-caption{
+    color: white;
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+    width: 40%;
+    padding: 0 15px;
+    text-align: center;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.row{
+    text-align: center;
+}
+
+h2{
+    font-size: 4.5em;
+    font-weight: 600;
+}
+
+.row .glyphicon{
+    font-size: 3em;
+    color: rgb(160,2,255);
+}
+
+footer{
+    color: white;
+    width: 100%;
+    height: 110px;
+    background: url(<%= asset_path 'bg/stardust.png' %>);
+}
+
+.sign{
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+footer p{
+    margin: 0 0 5px 0;
+}
+
+footer ul{
+    list-style: none;  
+}
+footer div:first-child a {
+    font-size: 1em;
+}
+
+
+@media screen and (max-width: 992px){
+    footer{
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .banner-caption{
+    bottom: 0;
+    width: 100%;
+    }
+}
+
+p.notice, p.alert{
+    display: none;
+}
+
+
+
+
+
+
