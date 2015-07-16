@@ -7,7 +7,10 @@ body {
   color: #2E3A38;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 62.5%;
-  margin-bottom: 100px;
+}
+
+body.body{
+  margin: 0 0 100px 0;
 }
 
 li,p{
@@ -103,14 +106,11 @@ footer div div:first-child a {
 
 @media screen and (max-width: 992px){
     
-    body{
-        margin-bottom: 0;
+    body.body{
+        margin: 0;
     }
 
-    footer{
-        height: auto;
-        position: static;
-    }
+
 }
 
 @media screen and (max-width: 768px){

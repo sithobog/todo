@@ -1,0 +1,37 @@
+h2{
+	text-align: center;
+}
+
+input{
+	border-radius: 7px;
+	border: 3px solid #ddd;
+	padding: 3px;
+}
+
+input:focus{
+	border-color: #d7ef8f;
+}
+
+.wrapper{
+	max-width: 275px;
+	margin: 0 auto;
+}
+
+.actions{
+	margin-top: 15px;
+
+	>input{
+	display: block;
+	margin: 0 auto;
+	}
+}
+
+.field{
+	>input{
+	width: 100%;
+	}
+
+	>label{
+	padding-top: 5px;
+	}
+}
