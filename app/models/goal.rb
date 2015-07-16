@@ -1,3 +1,7 @@
 class Goal < ActiveRecord::Base
-	scope :id_order, -> { order(id: :asc) }
+
+  belongs_to :user
+
+  scope :id_order, -> { order(id: :asc) }
+  
 end

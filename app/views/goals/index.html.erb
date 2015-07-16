@@ -1,6 +1,6 @@
 <h1>Goals</h1>
-<%= link_to "New goal", new_goal_path %>
+<%= link_to "New goal", new_user_goal_path %>
 
 <%= div_for(@goals) do |goal| %>
-<%= goal.name %> | <%= link_to 'Show', goal %></li>
+<%= goal.name %> | <%= link_to 'Show', user_goal_path(current_user,goal) %></li>
 <% end %>

@@ -3,7 +3,10 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
   devise_for :users
-  resources :goals
+  
+  resources :users, except: [:new,:create] do
+    resources :goals
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
