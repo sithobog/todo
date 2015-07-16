@@ -2,6 +2,10 @@ h2{
 	text-align: center;
 }
 
+span{
+	color: #999;
+}
+
 input{
 	border-radius: 7px;
 	border: 3px solid #ddd;
@@ -12,13 +16,15 @@ input:focus{
 	border-color: #d7ef8f;
 }
 
-.wrapper{
+.wrapper.well{
 	max-width: 275px;
-	margin: 0 auto;
+	margin: 40px auto;
+	border-radius: 20px;
+
 }
 
 .actions{
-	margin-top: 15px;
+	margin: 15px 0 15px 0;
 
 	>input{
 	display: block;
@@ -34,4 +40,14 @@ input:focus{
 	>label{
 	padding-top: 5px;
 	}
+}
+
+input[type="checkbox"],label[for="user_remember_me"]{
+	float: left;
+
+}
+
+.field.check input[type="checkbox"]{
+	width: 10%;
+	margin-top: 9px;
 }
