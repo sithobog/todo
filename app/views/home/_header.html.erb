@@ -9,8 +9,8 @@
                 </button>
            </div>
             <ul class="nav navbar-nav navbar-right collapse navbar-collapse">
-                <li><%= link_to "Sign up", new_user_registration_path %></li>
-                <li><a href="#">People</a></li>
+                <%= render 'home/authentication' %>
+                <li><%= link_to "People", users_path %></li>
                 <li><a href="#">About us</a></li>
             </ul>
     </header>

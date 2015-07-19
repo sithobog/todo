@@ -1,0 +1,7 @@
+<div class="container">
+  	<%= div_for(@users,class: "well col-md-6") do |user| %>
+  	<%= image_tag user.avatar.url(:thumb) %>
+	<%= user.name %> | <%= link_to 'Show', user %></li>
+	<% end %>
+  </div>
+</div>

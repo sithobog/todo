@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="well" >
+
+
+  	<%= form_for (@user) do |f| %>
+
+  	  <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="field">
+        <%= f.file_field :avatar %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+
+    <% end %>
+	</div>
+ </div>

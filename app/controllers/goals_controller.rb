@@ -52,7 +52,7 @@ class GoalsController < ApplicationController
   private
 
   def goal_params
-  	params.require(:goal).permit(:name,:description,:term)
+  	params.require(:goal).permit(:name,:description,:term,:image)
   end
 
   def get_user

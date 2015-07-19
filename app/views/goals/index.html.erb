@@ -1,6 +1,8 @@
+<div class="container">
 <h1>Goals</h1>
-<%= link_to "New goal", new_user_goal_path %>
-
-<%= div_for(@goals) do |goal| %>
+<%= link_to "New goal", new_user_goal_path %><br>
+<%= div_for(@goals,class: "well col-md-4") do |goal| %>
+<%= image_tag goal.image.url(:thumb) %>
 <%= goal.name %> | <%= link_to 'Show', user_goal_path(current_user,goal) %></li>
 <% end %>
+</div>

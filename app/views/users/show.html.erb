@@ -1,10 +1,12 @@
 <div class="container">
   <div class="well" >
-<p> Your name is <%= @user.name %> </p>
-<p> Your email is <%= @user.email %></p>
-<%= link_to 'Edit user', edit_user_path %>
-<%= link_to 'Delete', user_path(@user), method: :delete,
-									 data: {confirm: 'Are you sure?'} %>
-<%= link_to 'Goals', user_goals_path(current_user) %>
+	<%= image_tag @user.avatar.url(:medium) %>
+	<p> Your name is <%= @user.name %> </p>
+	<p> Your email is <%= @user.email %></p>
+	<%= link_to 'Edit user registration', edit_user_registration_path %>
+	<%= link_to 'Edit user', edit_user_path %>
+	<%= link_to 'Delete', user_path(@user), method: :delete,
+										 data: {confirm: 'Are you sure?'} %>
+	<%= link_to 'Goals', user_goals_path(current_user) %>
 	</div>
  </div>

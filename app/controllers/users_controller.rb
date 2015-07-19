@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
 
+  before_action :authenticate_user!
+
   def index
-    @articles = User.all
+    @users = User.all
   end  
 
   def show
@@ -26,12 +28,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
 
-    redirect_to articles_path
+    redirect_to users_path
   end
 
 
   private
     def user_params
-      params.require(:user).permit(:title, :text)
+      params.require(:user).permit(:name, :avatar)
     end  	
 end

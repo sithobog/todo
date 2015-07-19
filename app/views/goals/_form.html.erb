@@ -1,15 +1,18 @@
 <%= form_for [current_user,@goal] do |f| %>
-<div>
-<%= f.label :name %>
-<%= f.text_field :name %>
-</div>
-<div>
-<%= f.label :description %>
-<%= f.text_area :description %>
-</div>
-<div>
-<%= f.label :term %>
-<%= f.date_field :term %>
-</div>
-<%= f.submit %>
+	<div>
+		<%= f.label :name %><br>
+		<%= f.text_field :name %>
+	</div>
+	<div>
+		<%= f.label :description %><br>
+		<%= f.text_area :description %><br>
+	</div>
+	<div>
+		<%= f.label :term %><br>
+		<%= f.date_field :term %>
+	</div>
+	<div>
+	    <%= f.file_field :image %>
+	</div>
+	<%= f.submit %>
 <% end %>

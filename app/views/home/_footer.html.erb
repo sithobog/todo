@@ -8,8 +8,8 @@
      <div class="col-md-6">
           <h4>Links</h4>
           <ul>
-              <li class="omg"><a href="#">Sign in</a></li>
-              <li><a href="#">People</a></li>
+              <%= render 'home/authentication' %>
+              <li><%= link_to "People", users_path %></li>
               <li><a href="#">About us</a></li>
           </ul>
       </div>
