@@ -4,9 +4,11 @@
 		<%= image_tag @goal.image.url(:medium) %>
 		<p> <%= @goal.description %></p>
 		<p>Deadline: <%= @goal.term %></p>
-		<%= link_to 'Edit Goal', edit_user_goal_path(current_user,@goal) %>
-		<%= link_to 'Back to Goals', user_goals_path(current_user) %>
-		<%= link_to 'Delete', user_goal_path(current_user,@goal), method: :delete,
-											 data: {confirm: 'Are you sure?'} %>
+		<%= link_to 'Back to Goals', user_goals_path(@user) %>
+		<% if goals_owner? %>
+		  <%= link_to 'Edit Goal', edit_user_goal_path(@user,@goal) %>
+		  <%= link_to 'Delete', user_goal_path(@user,@goal), method: :delete,
+											   data: {confirm: 'Are you sure?'} %>
+		<% end %>
 	</div>
 </div>
