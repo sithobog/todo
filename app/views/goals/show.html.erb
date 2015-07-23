@@ -3,7 +3,7 @@
 		<h3> <%= @goal.name %> </h3>
 		<%= image_tag @goal.image.url(:medium) %>
 		<p> <%= @goal.description %></p>
-		<p>Deadline: <%= @goal.term %></p>
+		<p>Deadline: <%= @goal.term.strftime("%d %B %Y") %></p>
 		<%= link_to 'Back to Goals', user_goals_path(@user) %>
 		<% if goals_owner? %>
 		  <%= link_to 'Edit Goal', edit_user_goal_path(@user,@goal) %>

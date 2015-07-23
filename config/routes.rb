@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  get 'calendar/show'
+
   get 'home/index'
 
   root to: 'home#index'
   devise_for :users
+  resource :calendar, only: [:show], controller: :calendar
   
   resources :users, except: [:new,:create] do
     resources :goals

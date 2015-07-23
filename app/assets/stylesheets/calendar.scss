@@ -1,0 +1,20 @@
+// Place all the styles related to the Calendar controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.calendar.container{
+	.row{
+		.well{
+			width: 14.285714286%;
+			float: left;
+
+			&.today{
+				background-color: aqua;
+			}
+
+			&.not-month{
+				background-color: #ccc;
+			}
+		}
+	}
+}
