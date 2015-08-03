@@ -5,10 +5,10 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
   devise_for :users
-  resource :calendar, only: [:show], controller: :calendar
-  
+ 
   resources :users, except: [:new,:create] do
     resources :goals
+    resource :calendar, only: [:show], controller: :calendar
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

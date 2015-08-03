@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col-xs-12 text-center">
     <div class="well controls">
-      <%= link_to calendar_path(date: @date - 1.month), class: "btn btn-default" do %>
+      <%= link_to user_calendar_path(@user,date: @date - 1.month), class: "btn btn-default" do %>
         <i class="glyphicon glyphicon-backward"></i>
       <% end %>
       <%= "#{@date.strftime("%B %Y")}" %>
-      <%= link_to calendar_path(date: @date + 1.month), class: "btn btn-default" do %>
+      <%= link_to user_calendar_path(@user,date: @date + 1.month), class: "btn btn-default" do %>
         <i class="glyphicon glyphicon-forward"></i>
       <% end %>
     </div>
@@ -14,7 +14,14 @@
 <div class="row">
   <div class="col-xs-12">
     <%= calendar @date do |date| %>
-      <%= date.day %>  
+      <%= @last_goal_term %>
+      <%= date.day %>
+      <br>
+      <% @goals.each do |goal| %>
+        <% if goal.term.strftime("%Y-%m-%d") .to_s==date.to_s %>
+          <%= link_to goal.name, user_goal_path(@user,goal) %>
+        <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   has_many :goals, dependent: :destroy
-
+  has_one :calendar
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" },
   default_url: "missing_:style.png"
 
