@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+  validates :name, presence: true,
+                    length: {minimum: 5},
+                    uniqueness: true
   has_many :goals, dependent: :destroy
   has_one :calendar
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" },
