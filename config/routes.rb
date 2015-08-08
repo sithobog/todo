@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'calendar/show'
 
   get 'home/index'
@@ -6,7 +7,12 @@ Rails.application.routes.draw do
   root to: 'home#index'
   devise_for :users
  
-  resources :users, except: [:new,:create] do
+  resources :users, except: [:new, :create] do
+    resources :lists, only: [:create, :index, :show, :destroy] do
+      resources :tasks, only: [:create, :edit, :destroy] do
+        put :sort, on: :collection
+      end
+    end
     resources :goals
     resource :calendar, only: [:show], controller: :calendar
   end

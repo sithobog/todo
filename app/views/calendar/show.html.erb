@@ -14,11 +14,13 @@
 <div class="row">
   <div class="col-xs-12">
     <%= calendar @date do |date| %>
-      <%= @last_goal_term %>
       <%= date.day %>
+
+      <%= link_to "New list", user_lists_path(:list_date => date), method: :post %>
+
       <br>
       <% @goals.each do |goal| %>
-        <% if goal.term.strftime("%Y-%m-%d") .to_s==date.to_s %>
+        <% if goal.term.strftime("%Y-%m-%d").to_s==date.to_s %>
           <%= link_to goal.name, user_goal_path(@user,goal) %>
         <% end %>
       <% end %>

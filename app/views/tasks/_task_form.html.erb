@@ -1,0 +1,7 @@
+<%= form_for [@user,@list,@list.tasks.build] do |f| %>
+  <div>
+		<%= f.label :description %><br>
+		<%= f.text_field :description %><br>
+	</div>
+	<%= f.submit %>
+<% end %>

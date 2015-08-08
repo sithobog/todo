@@ -1,0 +1,5 @@
+<div class="well task_body" data-id="<%= task.id %>">  <!-- in file task.js selector '.well.task_body' is using to set "data-pos" to current div  -->
+    <%= truncate task.description, length: 50 %>
+    <%= link_to "Delete", user_list_task_path(@user,@list,task), method: :delete,
+    												data: {confirm: 'Are you sure?'} %>
+</div>
