@@ -8,6 +8,6 @@
   <% end %>
   <%= div_for(@goals,class: "well col-md-4") do |goal| %>
     <%= image_tag goal.image.url(:thumb) %>
-    <%= goal.name %> | <%= link_to 'Show', user_goal_path(@user,goal) %></li>
+    <%= goal.name %> | <%= link_to 'Show', user_goal_path(@user,goal) %>
   <% end %>
 </div>

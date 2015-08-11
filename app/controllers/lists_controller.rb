@@ -1,6 +1,7 @@
 class ListsController < ApplicationController
 
   before_action :get_user
+  helper_method :find_goal
 
   def index
     @lists = @user.lists
@@ -12,6 +13,7 @@ class ListsController < ApplicationController
   end
 
   def show
+    get_goals
 		@list = @user.lists.find(params[:id])
   end
 
@@ -22,9 +24,18 @@ class ListsController < ApplicationController
     redirect_to user_lists_path(@user), notice: "List successfully deleted"
   end
 
+  def find_goal(goal_id)
+    @goal = Goal.find_by(id: goal_id)
+  end
+
   private
   def get_user
     @user = User.find(params[:user_id])
+  end
+
+  def get_goals
+    get_user
+    @goals = @user.goals
   end
 
   def list_params

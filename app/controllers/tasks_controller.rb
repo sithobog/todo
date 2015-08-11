@@ -8,12 +8,15 @@ class TasksController < ApplicationController
 
   def create
   	@task = @list.tasks.create(task_params)
+  	@task.save
+  	redirect_to user_list_path(@user,@list)
+  end
 
-  	if @task.save
-  		redirect_to user_list_path(@user,@list)
-  	else
-  		render 'new'
-  	end
+  #this action create task from goal's tool
+  def generate
+    @task = @list.tasks.create(task_tool_params)
+    @task.save
+    redirect_to user_list_path(@user,@list)
   end
 
   def destroy
@@ -41,6 +44,10 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:description)
+  end
+
+  def task_tool_params
+    params.permit(:description, :list_id, :goal_id)
   end
 
 end

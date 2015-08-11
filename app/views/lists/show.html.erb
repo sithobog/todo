@@ -1,15 +1,31 @@
 <h1><%= @list.list_date.strftime("%d %B %Y") %></h1>
 
 <div class="row">
-  <div class="col-md-5 col-md-offset-4 sortable">
+  <div class="col-md-5 sortable">
     <% if @list.tasks.any? %>
         <%= render @list.tasks %>
     <% end %>
+		<h2>Add new task:</h2>
+		<%= render 'tasks/task_form' %>
+  </div>
+  <div class="col-md-5 col-md-offset-1">
+  	<h2>Goal's tools</h2>
+  	<div class="row">
+	  	<%= div_for(@goals,class: "well col-md-6") do |goal| %>
+	  		<%= goal.name %> <br />
+		    <%= image_tag goal.image.url(:thumb) %> <br />
+		    <p>Tools:</p>
+		    <% if goal.tools.any? %>
+		    	<%= render goal.tools %>
+		    <% else %>
+		    	<p>Goal doesn't have tools</p>
+		    <% end %>
+  		<% end %>
+  	</div>
   </div>
 </div>
 
-<h2>Add new task:</h2>
-  <%= render 'tasks/task_form' %>
+
 
 
 <%= link_to 'Back', user_lists_path(@user) %>
