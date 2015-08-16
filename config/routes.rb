@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :users, except: [:new, :create] do
     resources :lists, only: [:create, :index, :show, :destroy] do
       resources :tasks, only: [:create, :edit, :destroy] do
+        put :complete
         collection do
           post :generate
           put :sort

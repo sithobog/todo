@@ -49,6 +49,13 @@ class GoalsController < ApplicationController
     end
   end
 
+  def complete
+    @goal = @user.goals.find(params[:id])
+    @goal.status = "completed"
+    @goal.save
+    render :nothing => true
+  end
+
   def goals_owner?
     @user == current_user
   end

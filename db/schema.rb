@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150810210421) do
+ActiveRecord::Schema.define(version: 20150816085652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,36 +25,39 @@ ActiveRecord::Schema.define(version: 20150810210421) do
   add_index "calendars", ["user_id"], name: "index_calendars_on_user_id", using: :btree
 
   create_table "goals", force: :cascade do |t|
-    t.string   "name",               null: false
-    t.text     "description",        null: false
-    t.datetime "term",               null: false
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.string   "name",                                  null: false
+    t.text     "description",                           null: false
+    t.datetime "term",                                  null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.integer  "user_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "status",             default: "active"
   end
 
   add_index "goals", ["user_id"], name: "index_goals_on_user_id", using: :btree
 
   create_table "lists", force: :cascade do |t|
-    t.datetime "list_date",  null: false
+    t.datetime "list_date",                     null: false
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "status",     default: "active"
   end
 
   add_index "lists", ["user_id"], name: "index_lists_on_user_id", using: :btree
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "description", null: false
+    t.string   "description",                    null: false
     t.integer  "list_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "priority"
     t.integer  "goal_id"
+    t.string   "status",      default: "active"
   end
 
   add_index "tasks", ["goal_id"], name: "index_tasks_on_goal_id", using: :btree

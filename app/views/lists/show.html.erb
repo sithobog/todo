@@ -1,7 +1,11 @@
 <h1><%= @list.list_date.strftime("%d %B %Y") %></h1>
 
 <div class="row">
+<% if @list.status == 'active' %>
   <div class="col-md-5 sortable">
+<% else %>
+	<div class="col-md-5 sortable completed_list">
+<% end %>
     <% if @list.tasks.any? %>
         <%= render @list.tasks %>
     <% end %>

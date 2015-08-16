@@ -14,9 +14,9 @@ class ListsController < ApplicationController
 
   def show
     get_goals
+    completed?
 		@list = @user.lists.find(params[:id])
   end
-
 
   def destroy
     @list = @user.lists.find(params[:id])
@@ -31,6 +31,32 @@ class ListsController < ApplicationController
   private
   def get_user
     @user = User.find(params[:user_id])
+  end
+
+  def completed?
+    @list = @user.lists.find(params[:id])
+    flag = true
+    status_array = @list.tasks.pluck(:status)
+    status_array.each do |status|
+      if status == "active"
+        flag = false
+      end
+    end
+    if flag == true
+      complete
+    else
+      active
+    end
+  end
+
+  def complete
+    @list.status = "completed"
+    @list.save
+  end
+
+  def active
+    @list.status = "active"
+    @list.save
   end
 
   def get_goals

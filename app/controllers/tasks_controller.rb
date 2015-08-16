@@ -12,6 +12,12 @@ class TasksController < ApplicationController
   	redirect_to user_list_path(@user,@list)
   end
 
+  def destroy
+    @task = @list.tasks.find(params[:id])
+    @task.destroy
+    redirect_to user_list_path(@user,@list), notice: "Task successfully deleted"
+  end
+
   #this action create task from goal's tool
   def generate
     @task = @list.tasks.create(task_tool_params)
@@ -19,10 +25,11 @@ class TasksController < ApplicationController
     redirect_to user_list_path(@user,@list)
   end
 
-  def destroy
-    @task = @list.tasks.find(params[:id])
-    @task.destroy
-    redirect_to user_list_path(@user,@list), notice: "Task successfully deleted"
+  def complete
+    @task = @list.tasks.find(params[:task_id])
+    @task.status = "completed"
+    @task.save
+    render :nothing => true
   end
 
   def sort
