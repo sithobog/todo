@@ -3,7 +3,7 @@
   <% if @goals.empty? %>
     <p><%= @user.name %> does not have goals</p>
   <% end %>
-  <% if goals_owner? %>
+  <% if owner? %>
     <%= link_to "New goal", new_user_goal_path %><br>
   <% end %>
   <%= div_for(@goals,class: "well col-md-4") do |goal| %>

@@ -14,20 +14,20 @@
     </div>
   <% end %>
 
-	<div>
-		<%= f.label :name %><br>
-		<%= f.text_field :name %>
-	</div>
-	<div>
-		<%= f.label :description %><br>
-		<%= f.text_area :description %><br>
-	</div>
-	<div>
-		<%= f.label :term %><br>
-		<%= f.date_field :term %>
-	</div>
-	<div>
-	    <%= f.file_field :image %>
-	</div>
-	<%= f.submit %>
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %><br>
+  </div>
+  <div>
+    <%= f.label :term %><br>
+    <%= f.date_field :term %>
+  </div>
+  <div>
+      <%= f.file_field :image %>
+  </div>
+  <%= f.submit %>
 <% end %>

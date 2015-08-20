@@ -1,0 +1,10 @@
+<%= form_for [@user,@goal], method: :patch, html: {class: "conclusion"} do |f| %>
+  <div>
+  <%= f.label :conclusion %><br>
+  <%= f.text_area :conclusion %>
+</div>
+  <%= f.hidden_field :status, {value: 'completed'} %>
+<div>
+  <%= f.submit %>
+</div>
+<% end %>

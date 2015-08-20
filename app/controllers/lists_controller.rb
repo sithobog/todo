@@ -29,6 +29,7 @@ class ListsController < ApplicationController
   end
 
   private
+  
   def get_user
     @user = User.find(params[:user_id])
   end
@@ -37,16 +38,14 @@ class ListsController < ApplicationController
     @list = @user.lists.find(params[:id])
     flag = true
     status_array = @list.tasks.pluck(:status)
-    status_array.each do |status|
-      if status == "active"
-        flag = false
+    if status_array.empty?
+      flag = false
+    else
+      status_array.each do |status|
+        flag = false if status == "active" 
       end
     end
-    if flag == true
-      complete
-    else
-      active
-    end
+    flag ? complete : active
   end
 
   def complete

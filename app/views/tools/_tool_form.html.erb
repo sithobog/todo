@@ -1,7 +1,8 @@
 <%= form_for [@user,@goal,@tool] do |f| %>
   <div>
-		<%= f.label :description %><br>
-		<%= f.text_field :description %><br>
-	</div>
-	<%= f.submit %>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %><br>
+  </div>
+  <%= f.submit %>
+  <%= link_to "Back to goals", user_goals_path(@user) %>
 <% end %>

@@ -1,35 +1,35 @@
 <h1><%= @list.list_date.strftime("%d %B %Y") %></h1>
 
 <div class="row">
-<% if @list.status == 'active' %>
+  <% if active?(@list) %>
   <div class="col-md-5 sortable">
-<% else %>
-	<div class="col-md-5 sortable completed_list">
-<% end %>
+  <% else %>
+  <div class="col-md-5 sortable completed_list">
+  <% end %>
     <% if @list.tasks.any? %>
         <%= render @list.tasks %>
+    <% else %>
+    <div>List doesn't have any task</div>
     <% end %>
-		<h2>Add new task:</h2>
-		<%= render 'tasks/task_form' %>
+    <% if owner? %>
+      <h2>Add new task:</h2>
+      <%= render 'tasks/task_form' %>
+    <% end %>
   </div>
   <div class="col-md-5 col-md-offset-1">
-  	<h2>Goal's tools</h2>
-  	<div class="row">
-	  	<%= div_for(@goals,class: "well col-md-6") do |goal| %>
-	  		<%= goal.name %> <br />
-		    <%= image_tag goal.image.url(:thumb) %> <br />
-		    <p>Tools:</p>
-		    <% if goal.tools.any? %>
-		    	<%= render goal.tools %>
-		    <% else %>
-		    	<p>Goal doesn't have tools</p>
-		    <% end %>
-  		<% end %>
-  	</div>
+    <h2>Goal's tools</h2>
+    <div class="row">
+      <%= div_for(@goals,class: "well col-md-6") do |goal| %>
+        <%= goal.name %> <br />
+        <%= image_tag goal.image.url(:thumb) %> <br />
+        <p>Tools:</p>
+        <% if goal.tools.any? %>
+          <%= render goal.tools %>
+        <% else %>
+          <p>Goal doesn't have tools</p>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
-
-
-
-
 <%= link_to 'Back', user_lists_path(@user) %>

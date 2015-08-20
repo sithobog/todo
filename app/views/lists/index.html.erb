@@ -5,7 +5,9 @@
   <% end %>
   <%= div_for(@lists,class: "well col-md-3") do |list| %>
     <%= list.list_date.strftime("%d %B %Y") %> | <%= link_to 'Show', user_list_path(@user,list) %>
-    |<%= link_to 'Delete', user_list_path(@user,list), method: :delete,
+    <% if owner? %>
+      |<%= link_to 'Delete', user_list_path(@user,list), method: :delete,
 											   data: {confirm: 'Are you sure?'} %></li>
+	  <% end %>
   <% end %>
 </div>

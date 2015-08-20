@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
+  helper_method :owner?, :active?
+
   def after_sign_in_path_for(resource)
   	current_user
   end
@@ -14,8 +16,16 @@ class ApplicationController < ActionController::Base
 	request.referrer
   end
 
-  protected
+  def owner?
+    @user == current_user
+  end
 
+  def active?(object)
+    object.status == 'active'
+  end
+
+  protected
+  
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :name
     devise_parameter_sanitizer.for(:account_update) << :name

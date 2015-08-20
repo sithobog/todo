@@ -1,0 +1,6 @@
+<div>
+  <%= truncate task.description, length: 50 %>
+  <% if task.goal_id %>
+  	<%= image_tag find_goal(task.goal_id).image.url(:xs) %>
+  <% end %>
+</div>

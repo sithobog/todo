@@ -11,7 +11,9 @@ class Goal < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   belongs_to :user
-  has_many :tools
+  has_many :tools, dependent: :destroy
+  has_many :tasks, dependent: :destroy
+
 
   scope :id_order, -> { order(id: :asc) }
   

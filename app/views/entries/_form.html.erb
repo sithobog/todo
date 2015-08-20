@@ -1,0 +1,10 @@
+<%= form_for [@user,@entry] do |f| %>
+  <div>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %><br>
+  </div>
+  <div>
+    <%= f.hidden_field :day, {value: Date.today} %>
+  </div>
+  <%= f.submit %>
+<% end %>

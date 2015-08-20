@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   before_action :authenticate_user!
-  helper_method :owner?
 
   def index
     @users = User.all
@@ -37,16 +36,9 @@ class UsersController < ApplicationController
     end
   end
 
-
-  def owner?
-    @user = User.find(params[:id])
-    @user == current_user
-  end
-
-
   private
-    def user_params
-      params.require(:user).permit(:name, :avatar)
-    end
 
+  def user_params
+    params.require(:user).permit(:name, :avatar)
+  end
 end

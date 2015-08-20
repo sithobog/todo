@@ -10,7 +10,7 @@ set_positions = function(){
 }
 
 is_list_completed = function(){
-  if ($('.well.task_body').length == $('.well.task_body.completed').length){
+  if ($('.well.task_body').length != 0 && $('.well.task_body').length == $('.well.task_body.completed').length){
     $('.sortable').addClass('completed_list');
   }
 }

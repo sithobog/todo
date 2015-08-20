@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="well">
+    <h2> <%= @entry.day.strftime("%d %B %Y") %> </h2>
+    <%= render partial: "tasks/simple_task", collection: @tasks, as: :task %>
+    <p> <%= @entry.body %></p>
+    <%= link_to 'Back to entries', user_entries_path(@user) %>
+  </div>
+</div>

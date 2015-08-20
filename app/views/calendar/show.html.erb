@@ -15,9 +15,9 @@
   <div class="col-xs-12">
     <%= calendar @date do |date| %>
       <%= date.day %>
-
+      <% if owner? %>
       <%= link_to "New list", user_lists_path(:list_date => date), method: :post %>
-
+      <% end %>
       <br>
       <% @goals.each do |goal| %>
         <% if goal.term.strftime("%Y-%m-%d").to_s==date.to_s %>

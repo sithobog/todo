@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
   has_many :goals, dependent: :destroy
   has_many :lists, dependent: :destroy
   has_many :tasks, through: :lists
-  has_one :calendar
+  has_one :calendar, dependent: :destroy
+  has_one :diary, dependent: :destroy
+  has_many :entries, dependent: :destroy
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" },
   default_url: "missing_:style.png"
 

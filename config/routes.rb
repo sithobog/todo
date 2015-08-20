@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       resources :tools
     end
     resource :calendar, only: [:show], controller: :calendar
+    resources :entries
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
