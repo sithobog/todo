@@ -1,26 +1,34 @@
 class TasksController < ApplicationController
 
-	before_action :get_list
+  before_action :get_list
 
   def edit
     @task = @list.tasks.find(params[:id])
   end
 
   def create
-  	@task = @list.tasks.create(task_params)
-  	@task.save
-  	redirect_to user_list_path(@user,@list)
+    @task = @list.tasks.build(task_params)
+    if owner?
+      @task.save
+      redirect_to user_list_path(@user,@list)
+    else
+      redirect_to user_list_path(@user,@list), alert: my_alert
+    end
   end
 
   def destroy
     @task = @list.tasks.find(params[:id])
-    @task.destroy
-    redirect_to user_list_path(@user,@list), notice: "Task successfully deleted"
+    if owner?
+      @task.destroy
+      redirect_to user_list_path(@user,@list), notice: my_notice
+    else
+      redirect_to user_list_path(@user,@list), alert: my_alert
+    end
   end
 
   #this action create task from goal's tool
   def generate
-    @task = @list.tasks.create(task_tool_params)
+    @task = @list.tasks.build(task_tool_params)
     @task.save
     redirect_to user_list_path(@user,@list)
   end

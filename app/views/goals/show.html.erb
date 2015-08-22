@@ -9,8 +9,8 @@
     <p> <%= @goal.description %></p>
     <p>Deadline: <%= @goal.term.strftime("%d %B %Y") %></p>
     <%= link_to 'Back to Goals', user_goals_path(@user) %>
+    <%= link_to 'Tools', user_goal_tools_path(@user,@goal) %>
     <% if owner? %>
-      <%= link_to 'Tools', user_goal_tools_path(@user,@goal) %>
       <%= link_to 'Edit Goal', edit_user_goal_path(@user,@goal) %>
       <%= link_to 'Delete', user_goal_path(@user,@goal), method: :delete,
                          data: {confirm: 'Are you sure?'} %>

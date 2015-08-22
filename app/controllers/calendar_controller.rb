@@ -4,12 +4,12 @@ class CalendarController < ApplicationController
 
   
   def show
-  	@date = params[:date] ? Date.parse(params[:date]) : Date.today
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
   def user_goals
-  	get_user
-  	@goals = @user.goals
+    get_user
+    @goals = @user.goals
   end
 
   private

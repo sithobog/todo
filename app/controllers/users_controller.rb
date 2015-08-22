@@ -17,12 +17,13 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if owner?
-      @user.update(user_params)
-      redirect_to user_path(@user), notice: "Profile successfully updated"
-    elsif owner? == false
-      redirect_to user_path(@user), alert: "You do not have permission to modify profile"
+      if @user.update(user_params)
+        redirect_to user_path(@user), notice: my_notice("profile")
+      else
+        render 'edit'
+      end
     else
-      render 'edit'
+      redirect_to user_path(@user), alert: my_alert("profile")
     end
   end 
 
@@ -30,9 +31,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if owner?
       @user.destroy
-      redirect_to root_path, notice: "Profile successfully deleted"
+      redirect_to root_path, notice: my_notice("profile")
     else
-      redirect_to user_path(@user), alert: "You do not have permission to delete profile"
+      redirect_to user_path(@user), alert: my_alert("profile")
     end
   end
 

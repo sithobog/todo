@@ -9,11 +9,11 @@ class ApplicationController < ActionController::Base
   helper_method :owner?, :active?
 
   def after_sign_in_path_for(resource)
-  	current_user
+    current_user
   end
 
   def after_sign_out_path_for(resource_or_scope)
-	request.referrer
+   request.referrer
   end
 
   def owner?
@@ -31,4 +31,20 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :name
   end
 
+  private
+
+  def my_notice(obj = controller_name)
+    notice = obj.capitalize.singularize + " successfully "
+    if action_name == "destroy"
+      notice+ "deleted."
+    else
+      notice + action_name + "d."
+    end
+  end
+
+  def my_alert(obj = controller_name)
+    action_name == "destroy" ? action = "delete" : action = action_name
+    l = -> (action) { "You do not have permission to " + action + " " + obj.singularize + "." }
+    l.call(action)
+  end
 end

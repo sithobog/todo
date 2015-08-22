@@ -16,7 +16,7 @@
     <%= calendar @date do |date| %>
       <%= date.day %>
       <% if owner? %>
-      <%= link_to "New list", user_lists_path(:list_date => date), method: :post %>
+        <%= link_to "New list", user_lists_path(:list_date => date), method: :post %>
       <% end %>
       <br>
       <% @goals.each do |goal| %>

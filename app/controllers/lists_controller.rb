@@ -8,20 +8,28 @@ class ListsController < ApplicationController
   end
 
   def create
-  	@list = @user.lists.create(list_params)
-    redirect_to user_list_path(@user, @list) if @list.save
+    @list = @user.lists.build(list_params)
+    if owner?
+      redirect_to user_list_path(@user, @list) if @list.save
+    else
+      redirect_to user_calendar_path(@user), alert: my_alert
+    end
   end
 
   def show
     get_goals
     completed?
-		@list = @user.lists.find(params[:id])
+    @list = @user.lists.find(params[:id])
   end
 
   def destroy
     @list = @user.lists.find(params[:id])
-    @list.destroy
-    redirect_to user_lists_path(@user), notice: "List successfully deleted"
+    if owner?
+      @list.destroy
+      redirect_to user_lists_path(@user), notice: my_notice
+    else
+      redirect_to user_lists_path(@user), alert: my_alert
+    end
   end
 
   def find_goal(goal_id)

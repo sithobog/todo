@@ -3,11 +3,11 @@ class ToolsController < ApplicationController
   before_action :get_goal
 
   def index
-  	@tools = @goal.tools
+    @tools = @goal.tools
   end
 
   def show
-  	@tool = @goal.tools.find(params[:id])
+    @tool = @goal.tools.find(params[:id])
   end
 
   def new
@@ -19,25 +19,36 @@ class ToolsController < ApplicationController
   end
 
   def create
-  	@tool = @goal.tools.create(tool_params)
-
-  	if @tool.save
-  		redirect_to user_goal_tools_path(@user, @goal)
-  	else
-  		render 'new'
-  	end
+    @tool = @goal.tools.build(tool_params)
+    if owner?
+      if @tool.save
+        redirect_to user_goal_tools_path(@user, @goal), notice: my_notice
+      else
+        render 'new'
+      end
+    else
+      redirect_to user_goal_tools_path(@user, @goal), alert: my_alert
+    end
   end
 
   def update
     @tool = Tool.find(params[:id])
-    @tool.update(tool_params)
-    redirect_to user_goal_tools_path(@user, @goal), notice: "Tool successfully updated"
+    if owner?
+      @tool.update(tool_params)
+      redirect_to user_goal_tools_path(@user, @goal), notice: my_notice
+    else
+      redirect_to user_goal_tools_path(@user, @goal), alert: my_alert
+    end
   end
 
   def destroy
     @tool = @goal.tools.find(params[:id])
-    @tool.destroy
-    redirect_to user_goal_tools_path(@user, @goal), notice: "Tool successfully deleted"
+    if owner?
+      @tool.destroy
+      redirect_to user_goal_tools_path(@user, @goal), notice: my_notice
+    else
+      redirect_to user_goal_tools_path(@user, @goal), alert: my_alert
+    end
   end
 
   private
@@ -52,7 +63,7 @@ class ToolsController < ApplicationController
   end
 
   def tool_params
-  	params.require(:tool).permit(:description)
+    params.require(:tool).permit(:description)
   end
 
 end

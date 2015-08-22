@@ -3,8 +3,8 @@ class EntriesController < ApplicationController
   before_action :get_user
   helper_method :find_goal
 
-	def index
-  	@entries = @user.entries
+  def index
+    @entries = @user.entries
   end
 
   def show
@@ -20,25 +20,39 @@ class EntriesController < ApplicationController
   end
 
   def create
-  	@entry = @user.entries.create(entry_params)
-
-  	if @entry.save
-  		redirect_to user_entry_path(@user, @entry)
-  	else
-  		render 'new'
-  	end
+    @entry = @user.entries.create(entry_params)
+    if owner?
+      if @entry.save
+        redirect_to user_entry_path(@user, @entry), notice: my_notice
+      else
+        render 'new'
+      end
+    else
+      redirect_to user_entry_path(@user, @entry), alert: my_alert
+    end
   end
 
   def update
     @entry = entry.find(params[:id])
-    @entry.update(entry_params)
-    redirect_to user_entry_path(@user, @entry), notice: "entry successfully updated"
+    if owner?
+      if @entry.update(entry_params)
+        redirect_to user_entry_path(@user, @entry), notice: my_notice
+      else
+        render 'edit'
+      end
+    else
+      redirect_to user_entry_path(@user, @entry), alert: my_alert
+    end
   end
 
   def destroy
     @entry = @user.entries.find(params[:id])
-    @entry.destroy
-    redirect_to user_entries_path(@user), notice: "entry successfully deleted"
+    if owner?
+      @entry.destroy
+      redirect_to user_entries_path(@user), notice: my_notice
+    else
+      redirect_to user_entries_path(@user), alert: my_alert
+    end
   end
 
   def find_goal(goal_id)
