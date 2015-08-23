@@ -1,6 +1,7 @@
 class CalendarController < ApplicationController
 
   before_action :authenticate_user!, :user_goals, :get_user
+  helper_method :check_list
 
   
   def show
@@ -10,6 +11,10 @@ class CalendarController < ApplicationController
   def user_goals
     get_user
     @goals = @user.goals
+  end
+
+  def check_list(date)
+    @list = @user.lists.find_by(list_date: date)
   end
 
   private

@@ -1,5 +1,7 @@
 <div class="container">
   <div class="well">
+    <%= @list.inspect %>
+  <%= @tasks.inspect %>
     <h2> <%= @entry.day.strftime("%d %B %Y") %> </h2>
     <%= render partial: "tasks/simple_task", collection: @tasks, as: :task %>
     <p> <%= @entry.body %></p>

@@ -1,0 +1,5 @@
+<% if check_list(date) %>
+  <%= link_to 'List', user_list_path(@user, check_list(date)) %>
+<% elsif owner? %>
+  <%= link_to 'New list', user_lists_path(:list_date => date), method: :post %>
+<% end %>
