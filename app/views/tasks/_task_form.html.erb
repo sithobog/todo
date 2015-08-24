@@ -1,7 +1,10 @@
-<%= form_for [@user,@list,@list.tasks.build] do |f| %>
+<%= form_for [@user,@list,@list.tasks.build], remote: true do |f| %>
   <div>
     <%= f.label :description %><br>
     <%= f.text_field :description %><br>
+  </div>
+  <div>
+  	<%= f.select("goal_id", @user.goals.collect {|goal| [ goal.name, goal.id ] }, {include_blank: 'Routine'}) %>
   </div>
   <%= f.submit %>
 <% end %>

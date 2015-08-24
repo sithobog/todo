@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
 
   before_action :get_list
+  respond_to :html, :js, only: [:destroy, :create, :generate]
+  helper_method :find_goal
 
   def edit
     @task = @list.tasks.find(params[:id])
@@ -10,7 +12,6 @@ class TasksController < ApplicationController
     @task = @list.tasks.build(task_params)
     if owner?
       @task.save
-      redirect_to user_list_path(@user,@list)
     else
       redirect_to user_list_path(@user,@list), alert: my_alert
     end
@@ -20,7 +21,6 @@ class TasksController < ApplicationController
     @task = @list.tasks.find(params[:id])
     if owner?
       @task.destroy
-      redirect_to user_list_path(@user,@list), notice: my_notice
     else
       redirect_to user_list_path(@user,@list), alert: my_alert
     end
@@ -30,7 +30,6 @@ class TasksController < ApplicationController
   def generate
     @task = @list.tasks.build(task_tool_params)
     @task.save
-    redirect_to user_list_path(@user,@list)
   end
 
   def complete
@@ -47,6 +46,10 @@ class TasksController < ApplicationController
     render :nothing => true
   end
 
+  def find_goal(goal_id)
+    @goal = Goal.find_by(id: goal_id)
+  end
+
   private
   
   def get_user
@@ -59,7 +62,7 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:description)
+    params.require(:task).permit(:description, :goal_id)
   end
 
   def task_tool_params

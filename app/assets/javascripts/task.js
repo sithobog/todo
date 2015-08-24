@@ -52,6 +52,7 @@ ready = function(){
       url: current_url+'/tasks/'+id+'/complete'
     });
   });
+
 }
 
 $(document).ready(ready);
@@ -59,3 +60,8 @@ $(document).ready(ready);
  * if using turbolinks
  */
 $(document).on('page:load', ready);
+
+$(document).bind('ajaxSuccess', ready);
+$(document).ajaxSuccess(function(){
+    $('#new_task')[0].reset();
+});
