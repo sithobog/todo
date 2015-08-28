@@ -19,7 +19,7 @@ class ListsController < ApplicationController
   def show
     get_goals
     completed?
-    @list = @user.lists.find(params[:id])
+    @list = @user.lists.includes(:tasks).find(params[:id])
   end
 
   def destroy
@@ -68,7 +68,7 @@ class ListsController < ApplicationController
 
   def get_goals
     get_user
-    @goals = @user.goals
+    @goals = @user.goals.includes(:tools)
   end
 
   def list_params
