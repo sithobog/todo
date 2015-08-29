@@ -5,6 +5,7 @@ class EntriesController < ApplicationController
 
   def index
     @entries = @user.entries
+    check_today_entry if owner?
   end
 
   def show
@@ -33,7 +34,7 @@ class EntriesController < ApplicationController
   end
 
   def update
-    @entry = entry.find(params[:id])
+    @entry = Entry.find(params[:id])
     if owner?
       if @entry.update(entry_params)
         redirect_to user_entry_path(@user, @entry), notice: my_notice
@@ -43,6 +44,12 @@ class EntriesController < ApplicationController
     else
       redirect_to user_entry_path(@user, @entry), alert: my_alert
     end
+  end
+
+  def add
+    @entry = Entry.find(params[:entry_id])
+    @entry.update(body: params[:body])
+    render :nothing => true
   end
 
   def destroy
@@ -73,6 +80,12 @@ class EntriesController < ApplicationController
 
   def get_user
     @user = User.find(params[:user_id])
+  end
+
+  def check_today_entry
+    get_user
+    @entry = @user.entries.find_by(day: Date.today)
+    @entry = @user.entries.create(body: "",day: Date.today) unless @entry
   end
 
 end

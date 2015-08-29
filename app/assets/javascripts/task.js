@@ -1,4 +1,4 @@
-var ready, set_positions, is_list_completed, empty_list_text;
+var ready, set_positions, is_list_completed, empty_list_text, reset_form;
 var current_url;
 
 set_positions = function(){
@@ -23,6 +23,12 @@ empty_list_text = function(){
     $('.text_for_empty_list').hide();
   } else if ($('.well.task_body').length == 0) {
     $('.text_for_empty_list').show();
+  }
+}
+
+reset_form = function(){
+  if ($('#new_task').length != 0){
+  $('#new_task')[0].reset();
   }
 }
 
@@ -57,13 +63,11 @@ ready = function(){
     var id = $(this).closest('.task_body').data('id');
     $(this).hide();
     $(this).closest('.task_body').addClass('completed');
-    //is_list_completed();
     $.ajax({
       type: "PUT",
       url: current_url+'/tasks/'+id+'/complete'
     });
   });
-
 }
 
 $(document).ready(ready);
@@ -74,6 +78,6 @@ $(document).on('page:load', ready);
 
 $(document).bind('ajaxSuccess', ready);
 $(document).ajaxSuccess(function(){
-    $('#new_task')[0].reset();
-    is_list_completed();
+  reset_form();
+  is_list_completed();
 });
