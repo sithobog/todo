@@ -16,5 +16,6 @@ class Goal < ActiveRecord::Base
 
 
   scope :id_order, -> { order(id: :asc) }
+  scope :goal_id, -> (goal_id) { where id: goal_id}
   
 end

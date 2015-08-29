@@ -7,11 +7,11 @@
   <div class="col-md-5 sortable completed_list">
   <% end %>
     <% if @list.tasks.any? %>
-      <% cache @list do %>
+      <%# cache @list do %>
         <%= render @list.tasks %>
-      <% end %>
+      <%# end %>
     <% else %>
-    <div>List doesn't have any task</div>
+    <div class="text_for_empty_list">List doesn't have any task</div>
     <% end %>
     <% if owner? %>
       <h2>Add new task:</h2>
