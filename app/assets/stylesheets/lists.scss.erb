@@ -1,0 +1,66 @@
+// Place all the styles related to the Lists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.list{
+  text-align: center;
+}
+
+.task_body{
+  margin-bottom: 5px;
+}
+
+.task_info, .task_links{
+  display: inline-block;
+}
+
+.delete_link, button.complete_task{
+  float: left;
+  position: relative;
+  top: 17px;
+}
+
+button.complete_task{
+  margin-left: 10px;
+  background-image: url(<%= asset_path 'checkbox_delete_sprite.png' %>);
+  background-repeat: no-repeat;
+  background-color: inherit;
+  background-position: -51px -1px;
+  display: block;
+  width: 48px;
+  height: 40px;
+  border: none;
+}
+
+.completed button.complete_task{
+    background-position: -1px -1px;
+}
+
+.completed .task_info{
+  background-color: #e0ffff;
+}
+
+.delete_link{
+  background-image: url(<%= asset_path 'checkbox_delete_sprite.png' %>);
+    background-repeat: no-repeat;
+    background-position: -100px -1px;
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+.task_info{
+  width: 70%;
+  &.well{
+    margin-bottom: 5px;
+  }
+}
+
+.sortable{
+  padding: 10px 0;
+  &.completed_list{
+    background-color: #9aff9a;
+    border-radius: 10px;
+    margin-left: 10px;
+  }
+}

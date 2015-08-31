@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>DoItWisely</title>
-  <%= stylesheet_link_tag 'normalize' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body class="body">
+  <main class="container wrapper">
   <%= render 'home/header' %>
-  <main class="container">
     <% if notice %>
       <p class="notice"><%= notice %></p>
     <% end %>
@@ -18,6 +17,7 @@
       <p class="alert"><%= alert %></p>
     <% end %>
     <%= yield %>
+    <div class="push"></div>
   </main>
   <%= render 'home/footer' %>
 </body>

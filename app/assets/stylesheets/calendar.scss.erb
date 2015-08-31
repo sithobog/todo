@@ -1,0 +1,55 @@
+// Place all the styles related to the Calendar controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.calendar.container{
+  .row{
+    .well{
+      width: 14.285714286%;
+      float: left;
+      text-align: center;
+      margin-bottom: 5px;
+      position: relative;
+
+      a{
+        background-image:  url(<%= asset_path 'list_small.png' %>);
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: block;
+        width: 29px;
+        height: 40px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        &.link_new{
+          opacity: .5;
+        }
+        &.goal_deadline{
+        position: static;
+        background: none;
+        display: inline;
+        }
+      }
+
+
+      &.today{
+        border: 2px solid rgb(160,2,255);
+        background-color: #d8bfd8;
+      }
+
+      &.not-month{
+        background-color: #ccc;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px){
+  .calendar.container .row .well a{
+    width: 18px;
+    height: 27.5px;
+    &.goal_deadline{
+      display: none;
+    }
+  }  
+}

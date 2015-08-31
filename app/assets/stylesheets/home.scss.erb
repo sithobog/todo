@@ -1,6 +1,5 @@
-html{
-    position: relative;
-    min-height: 100%;
+html, body{
+    height: 100%;
 }
 body {
   background: url(<%= asset_path 'bg/escheresque_ste.png' %>);
@@ -9,136 +8,129 @@ body {
   font-size: 62.5%;
 }
 
-body.body{
-  margin: 0 0 100px 0;
-}
-
 li,p{
-    font-size: 2em;
+  font-size: 1em;
 }
-
-main{
-    background-color: #eee;
-    height: 700px;
-}
-
 
 .container{
-    max-width: 960px;
+  max-width: 1200px;
 }
 
-main.container{
-    padding: 0;
+main.wrapper{
+  padding: 0;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  background-color: #eee;
 }
 
 header.navbar{
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 img{
-    max-width: 100%;
-    height: auto;
-    opacity: .8;
+  max-width: 100%;
+  height: auto;
+  opacity: .8;
 }
 
-
-
 .banner{
-    height: 320px;
-    background: url(<%= asset_path 'top.jpg' %>) no-repeat;
-
-    position: relative;
+  height: 320px;
+  background: url(<%= asset_path 'space.jpg' %>) no-repeat;
+  position: relative;
 }
 
 .banner-caption{
-    color: white;
-    position: absolute;
-    bottom: 30px;
-    right: 0;
-    width: 40%;
-    padding: 0 15px;
-    text-align: center;
-    background-color: rgba(0,0,0,0.6);
+  color: white;
+  position: absolute;
+  bottom: 30px;
+  right: 0;
+  width: 40%;
+  padding: 0 15px;
+  text-align: center;
+  background-color: rgba(0,0,0,0.6);
 }
 
-.row{
-    text-align: center;
+.steps{
+  text-align: center;
 }
 
 h2{
-    font-size: 4.5em;
-    font-weight: 600;
+  font-size: 4.5em;
+  font-weight: 600;
 }
 
 .row .glyphicon{
-    font-size: 3em;
-    color: rgb(160,2,255);
+  font-size: 3em;
+  color: rgb(160,2,255);
 }
 
 footer{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    color: white;
-    height: 100px;
-
-}
-
-footer .container{
+  width: 100%;
+  color: white;
+  p{
+    margin: 0 0 5px 0;
+  }
+  ul{
+    list-style: none;
+    padding: 0;
+  }
+  .container{
     background: url(<%= asset_path 'bg/stardust.png' %>);
+  }
+  div div:first-child a{
+    font-size: 1em;
+  }
 }
 
 .sign{
     text-align: center;
     margin-bottom: 5px;
+    .well{
+      margin-bottom: 0;
+    }
 }
 
-footer p{
-    margin: 0 0 5px 0;
+#error_explanation{
+  ul{
+    border: 2px solid yellow;
+    border-radius: 6px;
+  }
+  h2{
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+  }
 }
 
-footer ul{
-    list-style: none;  
-}
-footer div div:first-child a {
-    font-size: 1em;
-}
 
+@media screen and (max-width: 1200px){
+  .container{
+    min-width: 100%;
+  }
+}
 
 @media screen and (max-width: 992px){
     
-    main{
-        height: auto;
+  footer ul li{
+    display: inline-block;
+    margin-left: 15px;
+    &:first-child{
+      margin-left: 0;
     }
+  }
 
-    body.body{
-        margin: 0 0 153px 0;
-    }
-
-    footer{
-        height: 153px;
-    }
-
-    footer ul li{
-        display: inline-block;
-        margin-left: 15px;
-    }
-
-    footer ul li:first-child{
-        margin-left: 0;
-    }
-
-    .banner-caption{
-        width: 45%;
-    }
+  .banner-caption{
+    width: 45%;
+  }
 
 }
 
 @media screen and (max-width: 768px){
-    .banner-caption{
-        bottom: 0;
-        width: 100%;
-    }
+  .banner-caption{
+    bottom: 0;
+    width: 100%;
+  }
 }
 
 

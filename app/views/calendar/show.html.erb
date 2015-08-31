@@ -11,20 +11,19 @@
     </div>
   </div>
 </div>
-      <%= @hash.inspect %>
 <div class="row">
   <div class="col-xs-12">
     <%= calendar @date do |date| %>
       <%= date.day %>
         <% if @hash.value? date %>
-          <%= link_to 'List', user_list_path(@user, @hash.key(date)) %>
+          <%= link_to '', user_list_path(@user, @hash.key(date)), class: 'link_to_list' %>
         <% elsif owner? %>
-          <%= link_to 'New list', user_lists_path(:list_date => date), method: :post %>
+          <%= link_to '', user_lists_path(:list_date => date), method: :post, class: 'link_new' %>
         <% end %>
       <br>
       <% @goals.each do |goal| %>
         <% if goal.term.strftime("%Y-%m-%d").to_s==date.to_s %>
-          <%= link_to goal.name, user_goal_path(@user,goal) %>
+          <%= link_to goal.name+ " deadline", user_goal_path(@user,goal), class: 'goal_deadline' %>
         <% end %>
       <% end %>
     <% end %>

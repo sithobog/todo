@@ -1,17 +1,19 @@
 <% if active?(task) %>
-<div class="well task_body" data-id="<%= task.id %>">  <!-- in file task.js selector '.well.task_body' is using to set "data-pos" to current div  -->
+<div class="task_body" data-id="<%= task.id %>">  <!-- in file task.js selector '.task_body' is using to set "data-pos" to current div  -->
 <% else %>
-<div class="well task_body completed" data-id="<%= task.id %>">
+<div class="task_body completed" data-id="<%= task.id %>">
 <% end %>
-    <%= truncate task.description, length: 50 %>
+    <div class="task_info well">
+    <%= task.description %>
     <% if task.goal_id %>
       <%= image_tag find_goal(task.goal_id).image.url(:xs) %>
     <% end %>
+    </div>
+    <div class="task_links">
     <% if owner? %>
-      <%= link_to "Delete", user_list_task_path(@user,@list,task), remote: true, :class => "delete_link", method: :delete,
+      <button class="complete_task"></button>
+      <%= link_to "", user_list_task_path(@user,@list,task), remote: true, :class => "delete_link", method: :delete,
                                             data: {confirm: 'Are you sure?'} %>
-      <% if active?(task) %>
-        <button class="complete_task btn btn-primary">Done</button>
-      <% end %>
     <% end %>
+    </div>
 </div>

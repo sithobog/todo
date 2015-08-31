@@ -1,53 +1,63 @@
 h2{
-	text-align: center;
+  text-align: center;
 }
 
 span{
-	color: #999;
+  color: #999;
+}
+
+label{
+  display: block;
 }
 
 input{
-	border-radius: 7px;
-	border: 3px solid #ddd;
-	padding: 3px;
+  border-radius: 7px;
+  border: 3px solid #ddd;
+  padding: 3px;
 }
 
 input:focus{
-	border-color: #d7ef8f;
+  border-color: #d7ef8f;
 }
 
-.wrapper.well{
-	max-width: 275px;
-	margin: 80px auto;
-	border-radius: 20px;
+.form_wrapper.well{
+  max-width: 275px;
+  margin: 80px auto;
+  border-radius: 20px;
 
 }
 
 .actions{
-	margin: 15px 0 15px 0;
+  margin: 15px 0 15px 0;
 
-	>input{
-	display: block;
-	margin: 0 auto;
-	}
+  >input{
+  display: block;
+  margin: 0 auto;
+  }
 }
 
 .field{
-	>input{
-	width: 100%;
-	}
+  >input{
+  width: 100%;
+  }
 
-	>label{
-	padding-top: 5px;
-	}
+  >label{
+  padding-top: 5px;
+  }
+}
+
+.field_with_errors{
+  >input{
+    width: 100%;
+  }
 }
 
 input[type="checkbox"],label[for="user_remember_me"]{
-	float: left;
+  float: left;
 
 }
 
 .field.check input[type="checkbox"]{
-	width: 10%;
-	margin-top: 9px;
+  width: 10%;
+  margin-top: 9px;
 }

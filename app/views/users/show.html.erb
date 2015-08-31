@@ -1,16 +1,24 @@
 <div class="container">
-  <div class="well" >
-    <%= image_tag @user.avatar.url(:medium) %>
-    <p> Your name is <%= @user.name %> </p>
-    <p> Your email is <%= @user.email %></p>
-    <% if owner? %>
-      <%= link_to 'Edit user registration', edit_user_registration_path %>
-      <%= link_to 'Edit user', edit_user_path %>
-      <%= link_to 'Delete', user_path(@user), method: :delete, data: {confirm: 'Are you sure?'} %>
-    <% end %>
-    <%= link_to 'Goals', user_goals_path(@user) %>
-    <%= link_to 'Calendar', user_calendar_path(@user) %>
-    <%= link_to 'Lists', user_lists_path(@user) %>
-    <%= link_to 'Diary', user_entries_path(@user) %>
+  <div class="row users">
+  <div class="title">
+    <span><%= @user.name %> profile </span>
   </div>
+    <div class="col-md-6">
+      <%= image_tag @user.avatar.url(:medium) %><br>
+      <% if owner? %>
+        <%= link_to 'Edit user registration', edit_user_registration_path, class: 'btn btn-info' %>
+        <%= link_to 'Edit user', edit_user_path, class: 'btn btn-info' %>
+        <%= link_to 'Delete', user_path(@user), class: 'btn btn-info', method: :delete, data: {confirm: 'Are you sure?'} %>
+      <% end %>
+    </div>
+    <div class="col-md-6">
+      <div class="wrap wrap_1">
+        <%= link_to "", user_calendar_path(@user), class: 'sprite sprite-calendar' %>
+        <%= link_to "", user_lists_path(@user), class: 'sprite sprite-list' %>
+      </div>
+      <div class="wrap wrap_2">
+        <%= link_to "", user_goals_path(@user), class: 'sprite sprite-goal' %>
+        <%= link_to "", user_entries_path(@user), class: 'sprite sprite-diary' %>
+      </div>
+    </div>
 </div>

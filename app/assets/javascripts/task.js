@@ -1,16 +1,16 @@
-var ready, set_positions, is_list_completed, empty_list_text, reset_form;
+var ready, set_positions, is_list_completed, empty_list_text, reset_form, complete_task, sort_task;
 var current_url;
 
 set_positions = function(){
   // loop through and give each task a data-pos
   // attribute that holds its position in the DOM
-  $('.well.task_body').each(function(i){
+  $('.task_body').each(function(i){
     $(this).attr("data-pos",i+1);
   });
 }
 
 is_list_completed = function(){
-  if ($('.well.task_body').length != 0 && $('.well.task_body').length == $('.well.task_body.completed').length){
+  if ($('.task_body').length != 0 && $('.task_body').length == $('.task_body.completed').length){
     $('.sortable').addClass('completed_list');
   }else{
     $('.sortable').removeClass('completed_list');
@@ -19,9 +19,9 @@ is_list_completed = function(){
 }
 
 empty_list_text = function(){
-  if ($('.well.task_body').length != 0){
+  if ($('.task_body').length != 0){
     $('.text_for_empty_list').hide();
-  } else if ($('.well.task_body').length == 0) {
+  } else if ($('.task_body').length == 0) {
     $('.text_for_empty_list').show();
   }
 }
@@ -32,8 +32,22 @@ reset_form = function(){
   }
 }
 
-ready = function(){
+complete_task = function(){
+    $('.complete_task').on('click',function(){
+    var id = $(this).closest('.task_body').data('id');
+    //$(this).css("background-image","url(check.png)");
+    $(this).closest('.task_body').addClass('completed');
+    $.ajax({
+      type: "PUT",
+      url: current_url+'/tasks/'+id+'/complete',
+      success: function(){
+        sort_task();  
+      }
+    });
+  });
+}
 
+sort_task = function(){
   // call set_positions function
   set_positions();
   current_url = window.location.href
@@ -47,7 +61,7 @@ ready = function(){
     // set the updated positions
     set_positions();
     // populate the updated_order array with the new task positions
-    $('.well.task_body').each(function(i){
+    $('.task_body').each(function(i){
       updated_order.push({ id: $(this).data("id"), position: i+1 });
     });
 
@@ -58,16 +72,13 @@ ready = function(){
       data: { order: updated_order }
     });
   });
+}
 
-  $('.complete_task').on('click',function(){
-    var id = $(this).closest('.task_body').data('id');
-    $(this).hide();
-    $(this).closest('.task_body').addClass('completed');
-    $.ajax({
-      type: "PUT",
-      url: current_url+'/tasks/'+id+'/complete'
-    });
-  });
+ready = function(){
+
+  sort_task();
+  
+  complete_task();
 }
 
 $(document).ready(ready);
