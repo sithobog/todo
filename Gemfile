@@ -27,6 +27,7 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
 gem 'paperclip'
+gem 'aws-sdk'#, '< 2.0'
 
 gem 'devise'
 

@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   default_url: "missing_:style.png"
 
   
-									 
+	validates_with AttachmentSizeValidator, attributes: :avatar, less_than: 2.megabytes								 
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   # Include default devise modules. Others available are:
