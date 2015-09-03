@@ -1,0 +1,17 @@
+<footer>
+  <div class="container">
+    <div class="col-md-6">
+      <h4>Don't know how to use this application?</h4>
+      <p>Use link below for some info</p>
+      <%= link_to "About app", home_about_path %>
+    </div>
+    <div class="col-md-6">
+      <h4>Links</h4>
+      <ul>
+        <%= render 'layouts/authentication' %>
+        <li><%= link_to "People", users_path %></li>
+        <li><%= link_to "About app", home_about_path %></li>
+      </ul>
+    </div>
+  </div>
+</footer>

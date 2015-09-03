@@ -9,8 +9,8 @@
     </button>
   </div>
   <ul class="nav navbar-nav navbar-right collapse navbar-collapse">
-    <%= render 'home/authentication' %>
+    <%= render 'layouts/authentication' %>
     <li><%= link_to "People", users_path %></li>
-    <li><a href="#">About us</a></li>
+    <li><%= link_to "About app", home_about_path %></li>
   </ul>
 </header>
