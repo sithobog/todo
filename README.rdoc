@@ -14,6 +14,6 @@ This application is designed to help people achieve their goals. More info you c
 
 == Deployment instructions
 
-Users and goals can have avatars/images. Application use Paperclip gem for this purpose. On development files is saved locally, on production files is saved on amazon S3 storage. How to set it up there is info: https://devcenter.heroku.com/articles/paperclip-s3
+Users and goals can have avatars/images. Application use Paperclip gem for this purpose. On development files are saved locally, on production files are saved on amazon S3 storage. How to set it up there is info: https://devcenter.heroku.com/articles/paperclip-s3
 
 If application is throwing "access denied from AWS" make sure that IAM user has "AmazonS3FullAccess" policy.
