@@ -1,28 +1,19 @@
-== README
+== TODO
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This application is designed to help people achieve their goals. More info you can find on demo application: https://mytodoapplication.herokuapp.com/
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Ruby version: 2.2.2
+
+* Rails version: 4.2.1
+
+* Bootstrap version: 3.3.5.1
+
+* Database creation: PostgreSQL
+
+
+== Deployment instructions
+
+Users and goals can have avatars/images. Application use Paperclip gem for this purpose. On development files is saved locally, on production files is saved on amazon S3 storage. How to set it up there is info: https://devcenter.heroku.com/articles/paperclip-s3
+
+If application is throwing "access denied from AWS" make sure that IAM user has "AmazonS3FullAccess" policy.
