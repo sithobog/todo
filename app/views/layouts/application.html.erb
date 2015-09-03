@@ -11,10 +11,10 @@
   <main class="container wrapper">
   <%= render 'home/header' %>
     <% if notice %>
-      <p class="notice"><%= notice %></p>
+      <%= js add_gritter(flash[:notice], :image => :success, :time =>3000) %>
     <% end %>
     <% if alert %>
-      <p class="alert"><%= alert %></p>
+      <%= js add_gritter(flash[:alert], :image => :warning, :time => 3000) %>
     <% end %>
     <%= yield %>
     <div class="push"></div>

@@ -35,6 +35,8 @@ gem 'whenever', require: false
 
 gem 'puma'
 
+gem 'gritter', "1.2.0"
+
 group :production do
   gem 'rails_12factor'
 end
