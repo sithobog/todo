@@ -9,7 +9,7 @@
 </head>
 <body class="body">
   <main class="container wrapper">
-  <%= render 'home/header' %>
+  <%= render 'layouts/header' %>
     <% if notice %>
       <%= js add_gritter(flash[:notice], :image => :success, :time =>3000) %>
     <% end %>
@@ -19,6 +19,6 @@
     <%= yield %>
     <div class="push"></div>
   </main>
-  <%= render 'home/footer' %>
+  <%= render 'layouts/footer' %>
 </body>
 </html>

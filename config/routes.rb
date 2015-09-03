@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
+  get 'home/about'
+
   root to: 'home#index'
+  
   devise_for :users
  
   resources :users, except: [:new, :create] do
