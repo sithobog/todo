@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="well" >
+  <div class="form_wrapper well" >
     <%= form_for (@user) do |f| %>
 
 
@@ -18,16 +18,18 @@
     <% end %>
 
       <div class="field">
-        <%= f.label :name %><br />
+        <%= f.label :name %>
         <%= f.text_field :name %>
       </div>
 
       <div class="field">
+        <%= f.label :avatar %>
         <%= f.file_field :avatar %>
+        <p>File format: *.jpg, *.png, *.gif</p>
       </div>
 
       <div class="actions">
-        <%= f.submit %>
+        <%= f.submit "Update User", :class => "btn btn-primary" %>
       </div>
     <% end %>
   </div>

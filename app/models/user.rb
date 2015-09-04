@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   validates :name, presence: true,
-                    length: {minimum: 5},
+                    length: {minimum: 2},
                     uniqueness: true
   has_many :goals, dependent: :destroy
   has_many :lists, dependent: :destroy

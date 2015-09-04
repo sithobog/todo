@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+	<h2>Go to your profile!</h2>
+	<%= link_to "Go to profile", user_path(@user), class: "btn btn-lg btn-primary" %>
+<% else %>
+	<h2>Sign up and start planning your goal!</h2>
+	<%= link_to "Sign up", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+<% end %>
