@@ -1,22 +1,20 @@
 <div class="container">
   <% if active?(@goal) %>
-    <div class="well goal" data-id="<%= @goal.id %>">
+    <div class="well goal_profile" data-id="<%= @goal.id %>">
   <% else %>
-    <div class="well goal completed_goal">
+    <div class="well goal_profile completed_goal">
   <% end %>
     <h3> <%= @goal.name %></h3>
     <%= image_tag @goal.image.url(:medium) %>
     <p> <%= @goal.description %></p>
     <p>Deadline: <%= @goal.term.strftime("%d %B %Y") %></p>
-    <%= link_to 'Back to Goals', user_goals_path(@user) %>
-    <%= link_to 'Tools', user_goal_tools_path(@user,@goal) %>
     <% if owner? %>
-      <%= link_to 'Edit Goal', edit_user_goal_path(@user,@goal) %>
-      <%= link_to 'Delete', user_goal_path(@user,@goal), method: :delete,
-                         data: {confirm: 'Are you sure?'} %>
+      <%= link_to 'Edit Goal', edit_user_goal_path(@user,@goal), :class => "btn btn-warning" %>
       <% if active?(@goal) %>
-        <button class="finish_goal btn btn-info">Finish Goal</button>
+        <button class="finish_goal btn btn-success">Finish Goal</button>
       <% end %>
     <% end %>
+    <%= link_to 'Tools', user_goal_tools_path(@user,@goal), :class => "btn btn-primary" %><br>
     <%= render 'finish_form' %>
+    <%= link_to 'Back to Goals', user_goals_path(@user), :class => "btn btn-info" %>
 </div>

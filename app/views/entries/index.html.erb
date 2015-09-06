@@ -1,16 +1,15 @@
 <div class="container">
+  <div class="row index_no_image">
   <h1>DIARY</h1>
-  <% if @entries.empty? %>
-    <p><%= @user.name %> does not have entries</p>
-  <% end %>
-  <% if owner? %>
-  <%= link_to "New entry", new_user_entry_path %><br>
-  <% end %>
-  <%= div_for(@entries,class: "well col-md-3") do |entry| %>
-    <%= entry.day.strftime("%d %B %Y") %> | <%= link_to 'Show', user_entry_path(@user,entry) %>
-    <% if owner? %>
-    |<%= link_to 'Delete', user_entry_path(@user,entry), method: :delete,
-											   data: {confirm: 'Are you sure?'} %></li>
+    <% if @entries.empty? %>
+      <p><%= @user.name %> does not have entries</p>
     <% end %>
-  <% end %>
+    <% @entries.each do |entry| %>
+      <%= link_to user_entry_path(@user, entry) do %>
+        <div class="well col-md-12">
+          <%= entry.day.strftime("%d %B %Y") %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>

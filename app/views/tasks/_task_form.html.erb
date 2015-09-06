@@ -6,5 +6,5 @@
   <div>
   	<%= f.select("goal_id", @user.goals.collect {|goal| [ goal.name, goal.id ] }, {include_blank: 'Routine'}) %>
   </div>
-  <%= f.submit %>
+  <%= f.submit "Create task", :class => "btn btn-primary" %>
 <% end %>

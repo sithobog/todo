@@ -1,13 +1,16 @@
 <div class="container">
-  <h1>Goals</h1>
-  <% if @goals.empty? %>
-    <p><%= @user.name %> does not have goals</p>
-  <% end %>
-  <% if owner? %>
-    <%= link_to "New goal", new_user_goal_path %><br>
-  <% end %>
-  <%= div_for(@goals,class: "well col-md-4") do |goal| %>
-    <%= image_tag goal.image.url(:thumb) %>
-    <%= goal.name %> | <%= link_to 'Show', user_goal_path(@user,goal) %>
-  <% end %>
+  <div class="row">
+    <h1>Goals</h1>
+    <% if @goals.empty? %>
+      <p><%= @user.name %> does not have goals</p>
+    <% end %>
+    <% if owner? %>
+      <%= link_to "New goal", new_user_goal_path, :class => "btn btn-success" %><br>
+    <% end %>
+    <%= div_for(@goals,class: "well col-md-4") do |goal| %>
+      <%= link_to (image_tag goal.image.url(:thumb)), user_goal_path(@user, goal), :class => "index_hover" %>
+      <%= goal.name %>
+    <% end %>
+  </div>
+  <%= link_to "Back to profile", user_path(@user), :class => "btn btn-info" %>
 </div>

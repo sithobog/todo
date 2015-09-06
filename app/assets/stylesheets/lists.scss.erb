@@ -4,6 +4,12 @@
 
 .list{
   text-align: center;
+  select{
+    margin: 5px 0;
+  }
+  .back_link{
+    float: left;
+  }
 }
 
 .task_body{
@@ -62,5 +68,25 @@ button.complete_task{
     background-color: #9aff9a;
     border-radius: 10px;
     margin-left: 10px;
+  }
+}
+
+.delete_list{
+  float: right;
+}
+
+.index_no_image{
+  a{
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    &:hover, &:focus, &:active{
+      color: inherit;
+      text-decoration: none;
+      div{
+        border: 1px solid rgb(160,2,255);;
+      }
+    }
   }
 }

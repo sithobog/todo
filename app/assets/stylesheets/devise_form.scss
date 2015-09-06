@@ -21,7 +21,7 @@ input:focus{
 }
 
 .form_wrapper.well{
-  max-width: 275px;
+  max-width: 300px;
   margin: 80px auto;
   border-radius: 20px;
 
@@ -38,11 +38,14 @@ input:focus{
 
 .field{
   >input{
-  width: 100%;
+    width: 100%;
+  }
+  >textarea{
+    width: 100%;
   }
 
   >label{
-  padding-top: 5px;
+    padding-top: 5px;
   }
 }
 

@@ -1,11 +1,16 @@
 <div class="container">
-  <h1>Tools</h1>
-  <% if @tools.empty? %>
-    <p><%= @goal.name %> does not have tools</p>
-  <% end %>
-  <%= link_to "New tool", new_user_goal_tool_path %><br>
-  <%= div_for(@tools,class: "well col-md-4") do |tool| %>
-    <%= tool.description %> | <%= link_to "Edit tool", edit_user_goal_tool_path(@user, @goal, tool) %> | <%= link_to "Delete tool", user_goal_tool_path(@user, @goal, tool), method: :delete,
-    																data: {confirm: 'Are you sure?'}  %>
-  <% end %>
+  <div class="row">
+    <h1>Tools</h1>
+    <% if @tools.empty? %>
+      <p><%= @goal.name %> does not have tools</p>
+    <% end %>
+    <%= link_to "New tool", new_user_goal_tool_path, :class => "btn btn-success" %><br>
+    <%= div_for(@tools,class: "well col-md-4 tools") do |tool| %>
+      <%= tool.description %>
+      <%= link_to "Delete", user_goal_tool_path(@user, @goal, tool), method: :delete,
+                                      data: {confirm: 'Are you sure?'}, :class => "btn btn-danger"  %>
+      <%= link_to "Edit", edit_user_goal_tool_path(@user, @goal, tool), :class => "btn btn-warning" %>
+    <% end %>
+  </div>
+  <%= link_to "Back to goal", user_goal_path(@user, @goal), :class => "btn btn-info" %>
 </div>

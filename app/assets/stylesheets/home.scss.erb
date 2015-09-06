@@ -8,6 +8,17 @@ body {
   font-size: 62.5%;
 }
 
+.row{
+  padding: 5px;
+  h1{
+    text-align: center;
+  }
+  h1+.btn-success, p+.btn-success{
+    margin-bottom: 5px;
+    margin-left: 10px;
+  }
+}
+
 li,p{
   font-size: 1em;
 }
@@ -123,6 +134,17 @@ footer{
   }
   p,li{
     font-size: 16px;
+  }
+}
+
+.index_hover{
+  img{
+    border: 2px solid transparent;
+    border-radius: 5px;
+    &:hover, &:active, &:focus{
+      opacity: 1;
+      border: 2px solid grey;
+    }
   }
 }
 

@@ -1,13 +1,16 @@
 <div class="container">
-  <h1>Lists</h1>
-  <% if @lists.empty? %>
-    <p><%= @user.name %> does not have lists</p>
-  <% end %>
-  <%= div_for(@lists,class: "well col-md-3") do |list| %>
-    <%= list.list_date.strftime("%d %B %Y") %> | <%= link_to 'Show', user_list_path(@user,list) %>
-    <% if owner? %>
-      |<%= link_to 'Delete', user_list_path(@user,list), method: :delete,
-											   data: {confirm: 'Are you sure?'} %></li>
-	  <% end %>
-  <% end %>
+  <div class="row index_no_image">
+    <h1>Lists</h1>
+    <% if @lists.empty? %>
+      <p><%= @user.name %> does not have lists</p>
+    <% end %>
+    <% @lists.each do |list| %>
+      <%= link_to user_list_path(@user, list) do %>
+        <div class="well col-md-3">
+          <%= list.list_date.strftime("%d %B %Y")%>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= link_to "Back", :back, :class => "btn btn-info" %>
 </div>

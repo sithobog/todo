@@ -1,8 +1,12 @@
-<%= form_for [@user,@goal,@tool] do |f| %>
-  <div>
-    <%= f.label :description %><br>
-    <%= f.text_field :description %><br>
-  </div>
-  <%= f.submit %>
-  <%= link_to "Back to goals", user_goals_path(@user) %>
-<% end %>
+<div class="form_wrapper well">
+  <%= form_for [@user,@goal,@tool] do |f| %>
+    <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_area :description %><br>
+    </div>
+    <div class="actions">
+      <%= f.submit :class => "btn btn-primary" %>
+    </div>
+    <%= link_to "Back", :back, :class => "btn btn-info" %>
+  <% end %>
+</div>

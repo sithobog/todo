@@ -1,3 +1,4 @@
+<div class="form_wrapper well">
 <%= form_for [@user,@goal] do |f| %>
   
   <% if @goal.errors.any? %>
@@ -6,28 +7,33 @@
         <%= pluralize(@goal.errors.count, "error") %> prohibited
         this goal from being saved:
       </h2>
-      <ul>
+      <ol>
         <% @goal.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
-      </ul>
+      </ol>
     </div>
   <% end %>
 
-  <div>
-    <%= f.label :name %><br>
+  <div class="field">
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
-  <div>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %><br>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
   </div>
-  <div>
-    <%= f.label :term %><br>
+  <div class="field">
+    <%= f.label :term %>
     <%= f.date_field :term %>
   </div>
-  <div>
-      <%= f.file_field :image %>
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+    <p>File format: *.jpg, *.png, *.gif</p>
   </div>
-  <%= f.submit %>
+  <div class="actions">
+    <%= f.submit :class => "btn btn-primary" %>
+  </div>
 <% end %>
+</div>

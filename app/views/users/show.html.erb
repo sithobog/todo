@@ -6,9 +6,8 @@
     <div class="col-md-6">
       <%= image_tag @user.avatar.url(:medium) %><br>
       <% if owner? %>
-        <%= link_to 'Edit user registration', edit_user_registration_path, class: 'btn btn-info' %>
-        <%= link_to 'Edit user', edit_user_path, class: 'btn btn-info' %>
-        <%= link_to 'Delete', user_path(@user), class: 'btn btn-info', method: :delete, data: {confirm: 'Are you sure?'} %>
+        <%= link_to 'Edit user registration', edit_user_registration_path, class: 'btn btn-warning' %>
+        <%= link_to 'Edit user', edit_user_path, class: 'btn btn-warning' %>
       <% end %>
     </div>
     <div class="col-md-6">

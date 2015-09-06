@@ -1,41 +1,47 @@
-<div class="row list">
-  <h1 class="list_date"><%= @list.list_date.strftime("%d %B %Y") %></h1>
-  <div class="col-md-5 tasks">
-    <% if active?(@list) %>
-      <div class="sortable">
-    <% else %>
-      <div class="sortable completed_list">
-    <% end %>
-        <%= render @list.tasks %>
+<div class="container">
+  <div class="row list">
+    <h1 class="list_date"><%= @list.list_date.strftime("%d %B %Y") %></h1>
+    <div class="col-md-6 tasks">
+      <% if active?(@list) %>
+        <div class="sortable">
+      <% else %>
+        <div class="sortable completed_list">
+      <% end %>
+          <%= render @list.tasks %>
+        </div>
+      <% if @list.tasks.empty? %>
+      <div class="text_for_empty_list">
+        List doesn't have any task
       </div>
-    <% if @list.tasks.empty? %>
-    <div class="text_for_empty_list">
-      List doesn't have any task
-    </div>
-    <% end %>
-    <div class="form">
-      <% if owner? %>
-        <h2>Add new task:</h2>
-        <%= render 'tasks/task_form' %>
       <% end %>
-    </div>
-  </div>
-  <div class="col-md-5 col-md-offset-1">
-    <h2>Goal's tools</h2>
-    <div class="row">
-      <%= div_for(@goals,class: "well col-md-6") do |goal| %>
-        <%= goal.name %> <br />
-        <%= image_tag goal.image.url(:thumb) %> <br />
-        <p>Tools:</p>
-        <% if goal.tools.any? %>
-          <% cache goal do %>
-            <%= render goal.tools %>
-          <% end %>
-        <% else %>
-          <p>Goal doesn't have tools</p>
+      <div class="form">
+        <% if owner? %>
+          <h2>Add new task:</h2>
+          <%= render 'tasks/task_form' %>
         <% end %>
-      <% end %>
+      </div>
+      <%= link_to 'Back', user_lists_path(@user), :class => "btn btn-info back_link" %>
+      <%= link_to 'Delete list', user_list_path(@user,@list), method: :delete,
+                               data: {confirm: 'Are you sure?'}, :class => "btn btn-warning delete_list" %>
+    </div>
+    <div class="col-md-5 col-md-offset-1">
+      <h2>Goal's tools</h2>
+      <div class="row">
+        <%= div_for(@goals,class: "well col-md-6") do |goal| %>
+          <%= goal.name %> <br />
+          <%= image_tag goal.image.url(:thumb) %> <br />
+          <p>Tools:</p>
+          <% if goal.tools.any? %>
+            <% cache goal do %>
+              <%= render goal.tools %>
+            <% end %>
+          <% else %>
+            <p>Goal doesn't have tools</p>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
-<%= link_to 'Back', user_lists_path(@user) %>
+
+

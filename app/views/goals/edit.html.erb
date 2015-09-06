@@ -1,5 +1,7 @@
 <div class="container">
   <h1>Edit your goal</h1>
   <%= render 'form' %>
-  <%= link_to "Back to Goals", user_goals_path(@user) %>
+  <%= link_to "Back to goal", user_goal_path(@user, @goal), :class => "btn btn-info" %>
+  <%= link_to 'Delete', user_goal_path(@user,@goal), method: :delete,
+                         data: {confirm: 'Are you sure?'}, :class => "btn btn-danger delete_goal" %>
 </div>
